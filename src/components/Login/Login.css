@@ -1,0 +1,58 @@
+form {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  height: 25em;
+  background-color: rgba(204, 204, 204, 0.4);
+}
+
+html {
+  background: url(../../assets/denver-background.jpg) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+input {
+  width: 85%;
+  height: 1.5em;
+  font-size: 1.5em;
+}
+
+select {
+  width: 70%;
+  height: 3em;
+  font-size: 1em;
+}
+
+.input-and-label {
+  width: 80%;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  width: 40%;
+  height: 3em;
+  border: 1px solid black;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: green;
+  color: white;
+}
+
+h2 {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+}
