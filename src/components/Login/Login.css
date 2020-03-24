@@ -9,7 +9,7 @@ form {
   background-color: rgba(204, 204, 204, 0.4);
 }
 
-html {
+main {
   background: url(../../assets/denver-background.jpg) no-repeat center center
     fixed;
   -webkit-background-size: cover;
@@ -55,4 +55,10 @@ h2 {
   width: fit-content;
   height: fit-content;
   margin: 0;
+}
+
+.error-message {
+  width: fit-content;
+  height: fit-content;
+  color: red;
 }
