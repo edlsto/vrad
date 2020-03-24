@@ -1,0 +1,8 @@
+nav {
+  background-color: grey;
+  display: flex;
+}
+
+span {
+  font-size: 0.5em;
+}
