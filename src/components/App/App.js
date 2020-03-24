@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Nav from "../Nav/Nav";
 import Login from "../Login/Login";
+import CardsContainer from '../CardsContainer/CardsContainer'
 
 class App extends Component {
   constructor() {
@@ -12,12 +13,28 @@ class App extends Component {
     };
   }
 
+  logInUser = user => {
+    this.setState({
+      isLoggedIn: true,
+      userInfo: user
+    })
+  }
+
+
+
   render() {
+  let content;
+  if (this.state.isLoggedIn) {
+    content = <CardsContainer />
+  } else {
+    content = <Login logInUser={this.logInUser}/>
+  }
+
     return (
       <body>
         <Nav />
-        <main>
-          <Login />
+        <main className={this.state.isLoggedIn ? "logged-in" : ""}>
+          {content}
         </main>
       </body>
     );
