@@ -76,8 +76,8 @@ class Login extends Component {
   render() {
     let error = this.throwErrorMessage()
     return (
-      <form>
-        <h2>Login</h2>
+      <form data-testid="form">
+        <h2 data-testid="header">Login</h2>
         <p className="error-message">{this.state.loginFailed ? error : ""}</p>
         <input
           name="username"
@@ -94,6 +94,7 @@ class Login extends Component {
           onChange={e => this.updateFormState(e)}
         />
         <select
+          data-testid="select"
           name="visitReason"
           value={this.state.visitReason}
           onChange={e => this.updateFormState(e)}
@@ -103,7 +104,7 @@ class Login extends Component {
           <option value="vacation">Vacation</option>
           <option value="other">Other</option>
         </select>
-        <button onClick={this.submitLogin}>Login</button>
+        <button role="button" onClick={this.submitLogin}>Login</button>
       </form>
     );
   }
