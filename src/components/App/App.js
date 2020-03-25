@@ -17,12 +17,10 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/areas')
       .then(response => response.json())
-      // .then(data => console.log(data.areas))
       .then(data => {
         const promises = data.areas.map(area => {
           return fetch('http://localhost:3001' + area.details)
             .then(res => res.json())
-            // .then(data => console.log(data))
             .then(info => {
               return {
                 area: area.area,
@@ -47,7 +45,7 @@ class App extends Component {
   render() {
   let content;
   if (this.state.isLoggedIn) {
-    content = <CardsContainer />
+    content = <CardsContainer areas={this.state.areas}/>
   } else {
     content = <Login logInUser={this.logInUser}/>
   }
