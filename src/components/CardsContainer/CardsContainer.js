@@ -46,8 +46,11 @@ class CardsContainer extends Component {
         );
       });
     }
+    let selectedArea = this.props.areas.find(
+      area => parseInt(this.state.selectedArea) === area.id
+    );
     let msg = this.state.selectedArea
-      ? "Please select a property"
+      ? selectedArea.area
       : "Please select an area";
     return (
       <section className="page-body">
