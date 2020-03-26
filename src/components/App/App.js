@@ -11,7 +11,7 @@ class App extends Component {
       isLoggedIn: false,
       userInfo: { name: "", email: "", visitReason: "" },
       areas: [],
-      listings: {}
+      listings: []
     };
   }
 

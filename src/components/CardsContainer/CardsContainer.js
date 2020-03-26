@@ -21,6 +21,7 @@ class CardsContainer extends Component {
       cards = this.props.areas.map(area => {
         return (
           <Area
+            data-testid="card"
             about={area.about}
             id={area.id}
             key={area.id}
