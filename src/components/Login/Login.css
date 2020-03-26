@@ -1,3 +1,17 @@
+.login-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 91vh;
+  background: url(../../assets/denver-background.jpg) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 form {
   border: 1px solid black;
   display: flex;
@@ -7,15 +21,6 @@ form {
   width: 40%;
   height: 25em;
   background-color: rgba(204, 204, 204, 0.4);
-}
-
-main {
-  background: url(../../assets/denver-background.jpg) no-repeat center center
-    fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 input {
@@ -39,17 +44,48 @@ select {
   justify-content: space-between;
 }
 
+.login-button-container {
+  width: 40%;
+}
+
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40%;
   height: 3em;
   border: 1px solid black;
   font-size: 1em;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  font-family: Domine;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3em;
+  border: 1px solid black;
+  font-size: 1em;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  font-family: Domine;
+}
+
+.login-button:hover {
+  background-color: green;
+  color: white;
 }
 
 button:hover {
   background-color: green;
   color: white;
 }
+
 
 h2 {
   width: fit-content;
