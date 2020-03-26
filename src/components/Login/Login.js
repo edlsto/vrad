@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
 
-
 class Login extends Component {
   constructor({ logInUser }) {
     super();
@@ -22,42 +21,43 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value }, this.checkField(e));
   };
 
-  checkField = (e) => {
-    let { name, value } = e.target
-    if (name === 'username' && value.length > 0) {
-      this.setState({nameValid: true},  this.validateForm)
-    } else if (name === 'username' && value.length === 0){
-      this.setState({nameValid: false}, this.validateForm)
+  checkField = e => {
+    let { name, value } = e.target;
+    if (name === "username" && value.length > 0) {
+      this.setState({ nameValid: true }, this.validateForm);
+    } else if (name === "username" && value.length === 0) {
+      this.setState({ nameValid: false }, this.validateForm);
     }
 
-    if(name === 'email' && value.length > 0 && value.includes('@')) {
-      this.setState({emailValid: true},  this.validateForm)
-    } else if (name === 'email' && value.length === 0 && !value.includes('@')) {
-      this.setState({emailValid: false},  this.validateForm)
+    if (name === "email" && value.length > 0 && value.includes("@")) {
+      this.setState({ emailValid: true }, this.validateForm);
+    } else if (name === "email" && value.length === 0 && !value.includes("@")) {
+      this.setState({ emailValid: false }, this.validateForm);
     }
 
-    if (name === 'visitReason' && value !== '') {
-      this.setState({reasonValid: true},  this.validateForm)
-    } else if (name === 'visitReason' && value === '') {
-      this.setState({reasonValid: false},  this.validateForm)
+    if (name === "visitReason" && value !== "") {
+      this.setState({ reasonValid: true }, this.validateForm);
+    } else if (name === "visitReason" && value === "") {
+      this.setState({ reasonValid: false }, this.validateForm);
     }
-  }
+  };
 
   validateForm = () => {
     this.setState({
-      formValid:  this.state.nameValid && this.state.emailValid && this.state.reasonValid
-    })
-  }
+      formValid:
+        this.state.nameValid && this.state.emailValid && this.state.reasonValid
+    });
+  };
 
   throwErrorMessage = () => {
     if (!this.state.nameValid) {
-      return 'Please enter a valid name'
+      return "Please enter a valid name";
     } else if (!this.state.emailValid) {
-      return 'Please enter a valid email address'
+      return "Please enter a valid email address";
     } else if (!this.state.reasonValid) {
-      return 'Please enter a reason for your visit'
+      return "Please enter a reason for your visit";
     }
-  }
+  };
 
   submitLogin = e => {
     e.preventDefault();
@@ -65,16 +65,16 @@ class Login extends Component {
       name: this.state.username,
       email: this.state.email,
       visitReason: this.state.visitReason
-    }
+    };
     if (this.state.formValid) {
       this.props.logInUser(user);
     } else {
-      this.setState({loginFailed: true})
+      this.setState({ loginFailed: true });
     }
   };
 
   render() {
-    let error = this.throwErrorMessage()
+    let error = this.throwErrorMessage();
     return (
       <form>
         <h2>Login</h2>
