@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "../Nav/Nav";
 import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
+import { Route, NavLink, Redirect } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class App extends Component {
       isLoggedIn: false,
       userInfo: { name: "", email: "", visitReason: "" },
       areas: [],
-      listings: []
+      listings: [],
     };
   }
 
@@ -62,23 +63,12 @@ class App extends Component {
   };
 
   render() {
-    let content;
-    if (this.state.isLoggedIn) {
-      content = (
-        <CardsContainer
-          areas={this.state.areas}
-          listings={this.state.listings}
-        />
-      );
-    } else {
-      content = <Login logInUser={this.logInUser} />;
-    }
-
     return (
       <div>
         <Nav />
-        <main className={this.state.isLoggedIn ? "logged-in" : ""}>
-          {content}
+        <main className={this.props.isLoggedIn ? "logged-in" : ""}>
+          <Route exact path="/" render={(routeValues) => <Login logInUser={this.logInUser} {...routeValues} />} />
+          <Route path="/areas" render={(routeValues) => <CardsContainer areas={this.state.areas} {...routeValues} />} />
         </main>
       </div>
     );

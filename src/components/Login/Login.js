@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
+import { NavLink } from 'react-router-dom'
+
 
 class Login extends Component {
   constructor({ logInUser }) {
@@ -74,8 +76,12 @@ class Login extends Component {
   };
 
   render() {
+    let button = this.state.formValid ?
+      <NavLink className="login-button" to="/areas" role="button">Login</NavLink> :
+      <button className="login-button" role="button">Login</button>
     let error = this.throwErrorMessage();
     return (
+     <section className="login-background">
       <form data-testid="form">
         <h2 data-testid="header">Login</h2>
         <p className="error-message">{this.state.loginFailed ? error : ""}</p>
@@ -104,8 +110,11 @@ class Login extends Component {
           <option value="vacation">Vacation</option>
           <option value="other">Other</option>
         </select>
-        <button role="button" onClick={this.submitLogin}>Login</button>
+        <div className="login-button-container" onClick={e => this.submitLogin(e)}>
+          {button}
+        </div>
       </form>
+     </section> 
     );
   }
 }
