@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.card {
+  margin: 0 1em 1em 0;
+  position: relative;
+  border: 1px solid black;
+}
+
+.property-title {
+  height: auto;
+  background: gray;
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  height: 15em;
+  vertical-align: bottom;
+}
+
+/* button {
+  position: absolute;
+  left: 5em;
+  bottom: 3em;
+} */
+
+.image-btn {
+  position: relative;
+}
+
+.listings-btn {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #ce2828;
+  color: white;
+  text-transform: uppercase;
+}
