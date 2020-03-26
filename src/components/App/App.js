@@ -25,7 +25,10 @@ class App extends Component {
             .then(info => {
               return {
                 area: area.area,
-                ...info
+                about: info.about,
+                id: info.id,
+                name: info.name,
+                listings: info.listings
               };
             });
         });
