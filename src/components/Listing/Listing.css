@@ -4,12 +4,13 @@
 
 h3 {
   font-size: 1.5em;
+  font-weight: 400;
 }
 
 .card {
   margin: 0 1em 1em 0;
-  box-sizing: border-box;
   position: relative;
+  border: 1px solid black;
 }
 
 .property-title {
@@ -26,6 +27,7 @@ img {
   width: 100%;
   object-fit: cover;
   height: 15em;
+  vertical-align: bottom;
 }
 
 /* button {
@@ -44,4 +46,7 @@ img {
   left: 0;
   right: 0;
   margin: auto;
+  background: #ce2828;
+  color: white;
+  text-transform: uppercase;
 }
