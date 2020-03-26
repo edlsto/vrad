@@ -4,11 +4,12 @@ import Area from "../Area/Area";
 
 const CardsContainer = ({ areas }) => {
   return(
-    <section className="page-body">
+    <section data-testid="card-container" className="page-body">
       <h2>Please Select An Area</h2>
       <section className="card-container">
         {areas.map(area => {
           return <Area
+            data-testid={"card"}
             about={area.about}
             id={area.id}
             key={area.id}

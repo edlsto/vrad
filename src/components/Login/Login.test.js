@@ -39,4 +39,20 @@ describe('Login', () => {
       visitReason: 'business'
     })
   })
+
+  it('should display an error message if form is invalid', () => {
+    const mockSubmitLogin = jest.fn();
+
+    const { getByText, getByRole, getByPlaceholderText, getByTestId } = render(<Login logInUser={mockSubmitLogin}/>)
+
+    fireEvent.change(getByPlaceholderText("Name"), {target: {value: ''}})
+    fireEvent.change(getByPlaceholderText("Email"), {target: {value: 'dreardon1021@gmail.com'}})
+    fireEvent.change(getByTestId("select"), {target: {value: 'business'}})
+
+    fireEvent.click(getByRole("button"))
+
+    const errorMessageElement = getByText("Please enter a valid name")
+
+    expect(errorMessageElement).toBeInTheDocument()
+  })
 })
