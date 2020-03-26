@@ -13,13 +13,21 @@ describe('CardsContainer', () => {
 
   it('should render a card', () => {
     const { getByText } = render(<CardsContainer areas={[
-      {shortName: 'short',
+      {area: 'short',
       id: 1,
       about:'About',
-      longName: 'long',}]}/>)
+      name: 'long',}]}/>)
 
     const areaDescriptionElement = getByText('About')
-    //shortName and longName arent generating in their respected elements
+    const shortNameElement = getByText('short')
+    const longNameElement = getByText('long')
+    const buttonElement = getByText('View Listings')
+
+    expect(shortNameElement).toBeInTheDocument()
+    expect(longNameElement).toBeInTheDocument()
     expect(areaDescriptionElement).toBeInTheDocument()
+    expect(buttonElement).toBeInTheDocument()
+
+    //add image render when this is implemented
   })
 })

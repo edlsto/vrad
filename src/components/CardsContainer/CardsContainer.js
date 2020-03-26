@@ -54,7 +54,7 @@ class CardsContainer extends Component {
       ? selectedArea.area
       : "Please select an area";
     return (
-      <section className="page-body">
+      <section data-testid="card-container" className="page-body">
         <h2>{msg}</h2>
         <section
           className={
