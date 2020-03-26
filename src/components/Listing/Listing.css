@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.card {
+  margin: 0 1em 1em 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.property-title {
+  height: auto;
+  background: gray;
+  padding: 1em;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  height: 15em;
+}
+
+/* button {
+  position: absolute;
+  left: 5em;
+  bottom: 3em;
+} */
+
+.image-btn {
+  position: relative;
+}
+
+.listings-btn {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
