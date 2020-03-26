@@ -12,7 +12,6 @@ class CardsContainer extends Component {
   }
 
   chooseNeighborhood = e => {
-    console.log(e.target);
     this.setState({ selectedArea: e.target.name });
   };
 
@@ -39,6 +38,7 @@ class CardsContainer extends Component {
         return (
           <Listing
             listing_id={listing.listing_id}
+            key={listing.listing_id}
             name={listing.name}
             address={listing.address}
             details={listing.details}
