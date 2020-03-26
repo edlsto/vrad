@@ -6,7 +6,7 @@
   width: 90%;
   height: fit-content;
   min-height: 80vh;
-  background-color: rgba(204, 204, 204, 0.15);
+  /* background-color: rgba(204, 204, 204, 0.15); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,4 +25,15 @@
 h2 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.listings-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin: 0;
+  background: #ffffff;
+  color: black;
+  text-align: center;
+  /* background: lightgray; */
+  width: 80%;
 }
