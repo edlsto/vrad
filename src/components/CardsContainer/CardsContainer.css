@@ -1,5 +1,5 @@
 .logged-in {
-    background: none;
+  background: none;
 }
 
 .page-body {
@@ -13,7 +13,7 @@
   margin-top: 1em;
 }
 
-.card-container {
+.areas-card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -23,6 +23,6 @@
 }
 
 h2 {
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
