@@ -1,5 +1,6 @@
 import React from "react";
 import "./Area.css";
+import { NavLink } from 'react-router-dom'
 
 const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
   return (
@@ -9,13 +10,11 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
         <h4>{longName}</h4>
         <p>{about}</p>
       </div>
-      <button
-        className="view-listings-button"
-        name={id}
-        onClick={e => chooseNeighborhood(e)}
-      >
-        View Listings
-      </button>
+      <div name={id} className="view-listings-button-container">
+        <NavLink to={'/areas/' + id} className="view-listings-button" name={id}>
+          View Listings
+        </NavLink>
+      </div>
     </article>
   );
 };
