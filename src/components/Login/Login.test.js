@@ -2,6 +2,7 @@ import React from 'react'
 import  { render, fireEvent } from '@testing-library/react';
 import Login from './Login.js';
 import '@testing-library/jest-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 describe('Login', () => {
   it('should render text that we expect', () => {
@@ -25,7 +26,7 @@ describe('Login', () => {
   it('should allow user to login', () => {
     const mockSubmitLogin = jest.fn();
 
-    const { getByRole, getByPlaceholderText, getByTestId } = render(<Login logInUser={mockSubmitLogin}/>)
+    const { getByRole, getByPlaceholderText, getByTestId } = render(<Router><Login logInUser={mockSubmitLogin}/></Router>)
 
     fireEvent.change(getByPlaceholderText("Name"), {target: {value: 'Dan'}})
     fireEvent.change(getByPlaceholderText("Email"), {target: {value: 'dreardon1021@gmail.com'}})
