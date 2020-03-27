@@ -114,7 +114,7 @@ class Login extends Component {
           {button}
         </div>
       </form>
-     </section> 
+     </section>
     );
   }
 }
