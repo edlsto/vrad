@@ -70,7 +70,7 @@ class App extends Component {
         <main className={this.props.isLoggedIn ? "logged-in" : ""}>
           <Route exact path="/" render={(routeValues) => <Login logInUser={this.logInUser} {...routeValues} />} />
           <Route exact path="/areas" render={(routeValues) => <CardsContainer areas={this.state.areas} {...routeValues} />} />
-          <Route exact path="/areas/:id" render={(routeValues) => <ListingsContainer {...routeValues} />} />
+          <Route exact path="/areas/:id" render={(routeValues) => <ListingsContainer listingsData={this.state.listings} {...routeValues} />} />
         </main>
       </div>
     );
