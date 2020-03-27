@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "../Nav/Nav";
 import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
+import ListingsContainer from "../ListingsContainer/ListingsContainer"
 import { Route, NavLink, Redirect } from 'react-router-dom'
 
 class App extends Component {
@@ -68,7 +69,8 @@ class App extends Component {
         <Nav />
         <main className={this.props.isLoggedIn ? "logged-in" : ""}>
           <Route exact path="/" render={(routeValues) => <Login logInUser={this.logInUser} {...routeValues} />} />
-          <Route path="/areas" render={(routeValues) => <CardsContainer areas={this.state.areas} {...routeValues} />} />
+          <Route exact path="/areas" render={(routeValues) => <CardsContainer areas={this.state.areas} {...routeValues} />} />
+          <Route exact path="/areas/590" render={(routeValues) => <ListingsContainer {...routeValues} />} />
         </main>
       </div>
     );
