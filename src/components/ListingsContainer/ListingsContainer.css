@@ -1,8 +1,13 @@
+.listings-container-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  background: #ffffff;
+  color: black;
+  text-align: center;
+  /* background: lightgray; */
+}
+
 .listings-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 90%;
-  height: fit-content;
-  min-height: 80vh;
+  width: 100%;
+  margin: 0 10em;
 }
