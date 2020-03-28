@@ -49,4 +49,6 @@ img {
   background: #ce2828;
   color: white;
   text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
 }
