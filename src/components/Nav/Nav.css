@@ -1,6 +1,18 @@
+.greeting {
+  margin: 0 0 0.1em 0;
+}
+
 nav {
   background-color: grey;
   display: flex;
+  justify-content: space-between;
+}
+
+.greeting-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10em;
+  justify-content: center;
 }
 
 span {
@@ -11,4 +23,11 @@ span {
 h1 {
   font-size: 3em;
   font-weight: 400;
+  margin: 0.15em 0;
+}
+
+.favorite-btn {
+  height: auto;
+  width: auto;
+  padding: 0.5em 1em;
 }
