@@ -3,17 +3,17 @@ import "./App.css";
 import Nav from "../Nav/Nav";
 import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
-import ListingsContainer from "../ListingsContainer/ListingsContainer"
-import { Route, NavLink, Redirect } from 'react-router-dom'
+import ListingsContainer from "../ListingsContainer/ListingsContainer";
+import { Route, NavLink, Redirect } from "react-router-dom";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       isLoggedIn: false,
-      userInfo: { name: "", email: "", visitReason: "" },
+      userInfo: { name: "", email: "", visitReason: "", favorites: [] },
       areas: [],
-      listings: [],
+      listings: []
     };
   }
 
@@ -66,11 +66,32 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav userinfo={this.state.userInfo} />
         <main className={this.props.isLoggedIn ? "logged-in" : ""}>
-          <Route exact path="/" render={(routeValues) => <Login logInUser={this.logInUser} {...routeValues} />} />
-          <Route exact path="/areas" render={(routeValues) => <CardsContainer areas={this.state.areas} {...routeValues} />} />
-          <Route exact path="/areas/:id" render={(routeValues) => <ListingsContainer listingsData={this.state.listings} {...routeValues} />} />
+          <Route
+            exact
+            path="/"
+            render={routeValues => (
+              <Login logInUser={this.logInUser} {...routeValues} />
+            )}
+          />
+          <Route
+            exact
+            path="/areas"
+            render={routeValues => (
+              <CardsContainer areas={this.state.areas} {...routeValues} />
+            )}
+          />
+          <Route
+            exact
+            path="/areas/:id"
+            render={routeValues => (
+              <ListingsContainer
+                listingsData={this.state.listings}
+                {...routeValues}
+              />
+            )}
+          />
         </main>
       </div>
     );
