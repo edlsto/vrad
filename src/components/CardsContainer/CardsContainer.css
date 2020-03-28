@@ -20,6 +20,7 @@
   height: fit-content;
   min-height: 80vh;
   justify-content: center;
+  margin: 0 auto;
 }
 
 h2 {
