@@ -9,6 +9,35 @@ article {
   padding: 1em;
 }
 
+.view-listings-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 3em;
+  border: 1px solid black;
+  font-size: 1em;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  font-family: Domine;
+}
+
+.view-listings-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+  height: 3em;
+}
+
+.view-listings-button:hover {
+  background-color: green;
+  color: white;
+}
+
 h3 {
   font-size: 2em;
   margin: 0;
