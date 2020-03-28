@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import { NavLink } from 'react-router-dom'
-
+import { NavLink } from "react-router-dom";
 
 class Login extends Component {
   constructor({ logInUser }) {
@@ -66,7 +65,8 @@ class Login extends Component {
     const user = {
       name: this.state.username,
       email: this.state.email,
-      visitReason: this.state.visitReason
+      visitReason: this.state.visitReason,
+      favorites: []
     };
     if (this.state.formValid) {
       this.props.logInUser(user);
@@ -76,45 +76,54 @@ class Login extends Component {
   };
 
   render() {
-    let button = this.state.formValid ?
-      <NavLink className="login-button" to="/areas" role="button">Login</NavLink> :
-      <button className="login-button" role="button">Login</button>
+    let button = this.state.formValid ? (
+      <NavLink className="login-button" to="/areas" role="button">
+        Login
+      </NavLink>
+    ) : (
+      <button className="login-button" role="button">
+        Login
+      </button>
+    );
     let error = this.throwErrorMessage();
     return (
-     <section className="login-background">
-      <form data-testid="form">
-        <h2 data-testid="header">Login</h2>
-        <p className="error-message">{this.state.loginFailed ? error : ""}</p>
-        <input
-          name="username"
-          placeholder="Name"
-          type="text"
-          value={this.state.username}
-          onChange={e => this.updateFormState(e)}
-        />
-        <input
-          name="email"
-          placeholder="Email"
-          type="email"
-          value={this.state.email}
-          onChange={e => this.updateFormState(e)}
-        />
-        <select
-          data-testid="select"
-          name="visitReason"
-          value={this.state.visitReason}
-          onChange={e => this.updateFormState(e)}
-        >
-          <option value="">---Please select reason for visit---</option>
-          <option value="business">Business</option>
-          <option value="vacation">Vacation</option>
-          <option value="other">Other</option>
-        </select>
-        <div className="login-button-container" onClick={e => this.submitLogin(e)}>
-          {button}
-        </div>
-      </form>
-     </section>
+      <section className="login-background">
+        <form data-testid="form">
+          <h2 data-testid="header">Login</h2>
+          <p className="error-message">{this.state.loginFailed ? error : ""}</p>
+          <input
+            name="username"
+            placeholder="Name"
+            type="text"
+            value={this.state.username}
+            onChange={e => this.updateFormState(e)}
+          />
+          <input
+            name="email"
+            placeholder="Email"
+            type="email"
+            value={this.state.email}
+            onChange={e => this.updateFormState(e)}
+          />
+          <select
+            data-testid="select"
+            name="visitReason"
+            value={this.state.visitReason}
+            onChange={e => this.updateFormState(e)}
+          >
+            <option value="">---Please select reason for visit---</option>
+            <option value="business">Business</option>
+            <option value="vacation">Vacation</option>
+            <option value="other">Other</option>
+          </select>
+          <div
+            className="login-button-container"
+            onClick={e => this.submitLogin(e)}
+          >
+            {button}
+          </div>
+        </form>
+      </section>
     );
   }
 }

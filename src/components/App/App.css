@@ -8,11 +8,11 @@ body {
 }
 
 main {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  min-height: 90vh;
+  min-height: 90vh; */
 }
 
 h1 {
