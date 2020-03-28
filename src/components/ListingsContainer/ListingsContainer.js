@@ -25,7 +25,7 @@ class ListingsContainer extends Component {
     );
     return (
       <section className="listings-card-container">
-        <h2>Listings</h2>
+        <h2 className="listings-header">Listings</h2>
         <div className="listings-container-inner">
           {currentlyShownListings.map(listing => {
             return (
