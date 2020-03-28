@@ -23,8 +23,6 @@ class ListingsContainer extends Component {
     let currentlyShownListings = this.props.listingsData.filter(
       listing => listing.area_id === id
     );
-
-    console.log(currentlyShownListings);
     return (
       <section className="listings-card-container">
         <h2>Listings</h2>
