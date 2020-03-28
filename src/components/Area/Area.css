@@ -33,6 +33,8 @@ article {
   color: black;
   width: 100%;
   height: 3em;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
 }
 
 .view-listings-button:hover {
