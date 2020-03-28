@@ -9,11 +9,16 @@ const Nav = props => {
         VRAD<span>Vacation Rentals Around Denver</span>
       </h1>
       {props.userinfo.name && (
-        <div className="greeting-btn-container">
-          <h2 className="greeting">Hello, {props.userinfo.name}</h2>
-          <button className="favorite-btn">
-            Favorites ({props.userinfo.favorites.length})
-          </button>
+        <div className="logged-in-elements">
+          <div className="greeting-btn-container">
+            <h2 className="greeting">Hello, {props.userinfo.name}</h2>
+            <button className="favorite-btn">
+              Favorites ({props.userinfo.favorites.length})
+            </button>
+          </div>
+          <div className="log-out-container">
+            <button className="log-out">Log out</button>
+          </div>
         </div>
       )}
     </nav>
