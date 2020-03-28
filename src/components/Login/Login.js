@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
-import { NavLink } from 'react-router-dom'
-
+import { NavLink } from "react-router-dom";
 
 class Login extends Component {
   constructor({ logInUser }) {
@@ -20,28 +19,40 @@ class Login extends Component {
   }
 
   updateFormState = e => {
-    this.setState({ [e.target.name]: e.target.value }, this.checkField(e));
+    let { name, value } = e.target;
+    this.setState({ [name]: value }, this.checkField(name, value));
   };
 
-  checkField = e => {
-    let { name, value } = e.target;
-    if (name === "username" && value.length > 0) {
-      this.setState({ nameValid: true }, this.validateForm);
-    } else if (name === "username" && value.length === 0) {
-      this.setState({ nameValid: false }, this.validateForm);
+  checkField = (name, value) => {
+    let nameValid = this.state.nameValid;
+    let emailValid = this.state.emailValid;
+    let reasonValid = this.state.reasonValid;
+
+    switch (name) {
+      case "username":
+        let regexUsername = /[A-Za-z]/i;
+        nameValid = regexUsername.test(value);
+        break;
+      case "email":
+        let regexEmail = /\S+@\S+\.\S+/;
+        emailValid = regexEmail.test(String(value).toLowerCase());
+        break;
+      case "visitReason":
+        let regexReason = /[^("")]/;
+        reasonValid = regexReason.test(value);
+        break;
+      default:
+        break;
     }
 
-    if (name === "email" && value.length > 0 && value.includes("@")) {
-      this.setState({ emailValid: true }, this.validateForm);
-    } else if (name === "email" && value.length === 0 && !value.includes("@")) {
-      this.setState({ emailValid: false }, this.validateForm);
-    }
-
-    if (name === "visitReason" && value !== "") {
-      this.setState({ reasonValid: true }, this.validateForm);
-    } else if (name === "visitReason" && value === "") {
-      this.setState({ reasonValid: false }, this.validateForm);
-    }
+    this.setState(
+      {
+        nameValid: nameValid,
+        emailValid: emailValid,
+        reasonValid: reasonValid
+      },
+      this.validateForm
+    );
   };
 
   validateForm = () => {
@@ -76,45 +87,52 @@ class Login extends Component {
   };
 
   render() {
-    let button = this.state.formValid ?
-      <NavLink className="login-button" to="/areas" role="button">Login</NavLink> :
-      <button className="login-button" role="button">Login</button>
+    let button = this.state.formValid ? (
+      <NavLink className="login-button" to="/areas" role="button">
+        Login
+      </NavLink>
+    ) : (
+      <button className="login-button">Login</button>
+    );
     let error = this.throwErrorMessage();
     return (
-     <section className="login-background">
-      <form data-testid="form">
-        <h2 data-testid="header">Login</h2>
-        <p className="error-message">{this.state.loginFailed ? error : ""}</p>
-        <input
-          name="username"
-          placeholder="Name"
-          type="text"
-          value={this.state.username}
-          onChange={e => this.updateFormState(e)}
-        />
-        <input
-          name="email"
-          placeholder="Email"
-          type="email"
-          value={this.state.email}
-          onChange={e => this.updateFormState(e)}
-        />
-        <select
-          data-testid="select"
-          name="visitReason"
-          value={this.state.visitReason}
-          onChange={e => this.updateFormState(e)}
-        >
-          <option value="">---Please select reason for visit---</option>
-          <option value="business">Business</option>
-          <option value="vacation">Vacation</option>
-          <option value="other">Other</option>
-        </select>
-        <div className="login-button-container" onClick={e => this.submitLogin(e)}>
-          {button}
-        </div>
-      </form>
-     </section>
+      <section className="login-background">
+        <form data-testid="form">
+          <h2 data-testid="header">Login</h2>
+          <p className="error-message">{this.state.loginFailed ? error : ""}</p>
+          <input
+            name="username"
+            placeholder="Name"
+            type="text"
+            value={this.state.username}
+            onChange={e => this.updateFormState(e)}
+          />
+          <input
+            name="email"
+            placeholder="Email"
+            type="email"
+            value={this.state.email}
+            onChange={e => this.updateFormState(e)}
+          />
+          <select
+            data-testid="select"
+            name="visitReason"
+            value={this.state.visitReason}
+            onChange={e => this.updateFormState(e)}
+          >
+            <option value="">---Please select reason for visit---</option>
+            <option value="business">Business</option>
+            <option value="vacation">Vacation</option>
+            <option value="other">Other</option>
+          </select>
+          <div
+            className="login-button-container"
+            onClick={e => this.submitLogin(e)}
+          >
+            {button}
+          </div>
+        </form>
+      </section>
     );
   }
 }
