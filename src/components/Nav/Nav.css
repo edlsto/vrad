@@ -11,8 +11,10 @@ nav {
 .greeting-btn-container {
   display: flex;
   flex-direction: column;
-  margin-right: 10em;
   justify-content: center;
+  margin-right: 3em;
+  /* width: 20em; */
+  align-items: center;
 }
 
 span {
@@ -30,4 +32,28 @@ h1 {
   height: auto;
   width: auto;
   padding: 0.5em 1em;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  margin: 0 10em;
+  cursor: pointer;
+}
+
+.logged-in-elements {
+  display: flex;
+  margin-right: 3em;
+  justify-content: space-between;
+}
+
+.log-out-container {
+  display: flex;
+  align-items: center;
+}
+
+.log-out {
+  padding: 1em;
+  height: auto;
+  width: auto;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
 }
