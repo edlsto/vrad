@@ -36,6 +36,7 @@ describe('Login', () => {
 
     expect(mockSubmitLogin).toHaveBeenCalledWith({
       name: "Dan",
+      favorites: [],
       email: 'dreardon1021@gmail.com',
       visitReason: 'business'
     })
