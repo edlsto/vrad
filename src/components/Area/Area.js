@@ -9,7 +9,7 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
   };
 
   return (
-    <article style={sectionStyle} id={id}>
+    <article  style={sectionStyle} id={id}>
       <div className="area-card-info">
         <h3 className="area-title">
           <span className="area-highlight">{shortName}</span>
@@ -25,6 +25,7 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
           className="view-listings-button"
           name={id}
           role="button"
+          data-testid={id}
         >
           View Listings
         </NavLink>
