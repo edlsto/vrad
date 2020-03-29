@@ -23,13 +23,14 @@ class ListingsContainer extends Component {
     let currentlyShownListings = this.props.listingsData.filter(
       listing => listing.area_id === id
     );
+    
     return (
-      <section className="listings-card-container">
+      <section data-testid="listing-container" className="listings-card-container">
         <h2 className="listings-header">Listings</h2>
         <div className="listings-container-inner">
           {currentlyShownListings.map(listing => {
             return (
-              <Listing name={listing.name} listing_id={listing.listing_id} />
+              <Listing name={listing.name} listing_id={listing.listing_id} key={listing.listing_id} />
             );
           })}
         </div>

@@ -13,7 +13,7 @@ class CardsContainer extends Component {
 
   render() {
     return (
-      <section className="areas-card-container">
+      <section data-testid="card-container" className="areas-card-container">
         {this.props.areas.map(area => {
           return <Area
             data-testid="card"

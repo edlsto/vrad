@@ -21,7 +21,7 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
         <p className="about">{about}</p>
       </div>
       <div name={id} className="view-listings-button-container">
-        <NavLink to={"/areas/" + id} className="view-listings-button" name={id}>
+        <NavLink data-testid={id} role="button" to={"/areas/" + id} className="view-listings-button" name={id}>
           View Listings
         </NavLink>
       </div>
