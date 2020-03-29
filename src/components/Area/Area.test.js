@@ -40,7 +40,7 @@ describe("Area", () => {
     fireEvent.click(getByTestId("590"))
 
     const listingNameEl = getByText("Eds Place")
-    
+
     expect(listingNameEl).toBeInTheDocument()
   })
 })
