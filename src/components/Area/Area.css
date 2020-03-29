@@ -4,9 +4,11 @@ article {
   justify-content: space-between;
   align-items: center;
   width: 40%;
-  height: 15em;
+  height: auto;
   border: 1px solid black;
   padding: 1em;
+  margin: 1em 1em 0 0;
+  background-size: cover;
 }
 
 .view-listings-button-container {
@@ -31,6 +33,8 @@ article {
   color: black;
   width: 100%;
   height: 3em;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
 }
 
 .view-listings-button:hover {
@@ -38,11 +42,17 @@ article {
   color: white;
 }
 
-h3 {
+.area-title {
   font-size: 2em;
   margin: 0;
 }
 
-h4 {
-  margin: 0;
+.area-subtitle {
+  margin: 0 0 1em 0;
+}
+
+.card-background {
+  object-fit: cover;
+  height: 100%;
+  background-size: relative;
 }

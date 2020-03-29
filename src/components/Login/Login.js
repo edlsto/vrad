@@ -77,7 +77,8 @@ class Login extends Component {
     const user = {
       name: this.state.username,
       email: this.state.email,
-      visitReason: this.state.visitReason
+      visitReason: this.state.visitReason,
+      favorites: []
     };
     if (this.state.formValid) {
       this.props.logInUser(user);
