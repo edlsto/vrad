@@ -1,0 +1,19 @@
+.carousel-control {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.details-img {
+  width: 100%;
+  height: 25em;
+  object-fit: cover;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.control-item {
+  height: 2em;
+}
