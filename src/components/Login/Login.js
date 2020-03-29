@@ -19,28 +19,40 @@ class Login extends Component {
   }
 
   updateFormState = e => {
-    this.setState({ [e.target.name]: e.target.value }, this.checkField(e));
+    let { name, value } = e.target;
+    this.setState({ [name]: value }, this.checkField(name, value));
   };
 
-  checkField = e => {
-    let { name, value } = e.target;
-    if (name === "username" && value.length > 0) {
-      this.setState({ nameValid: true }, this.validateForm);
-    } else if (name === "username" && value.length === 0) {
-      this.setState({ nameValid: false }, this.validateForm);
+  checkField = (name, value) => {
+    let nameValid = this.state.nameValid;
+    let emailValid = this.state.emailValid;
+    let reasonValid = this.state.reasonValid;
+
+    switch (name) {
+      case "username":
+        let regexUsername = /[A-Za-z]/i;
+        nameValid = regexUsername.test(value);
+        break;
+      case "email":
+        let regexEmail = /\S+@\S+\.\S+/;
+        emailValid = regexEmail.test(String(value).toLowerCase());
+        break;
+      case "visitReason":
+        let regexReason = /[^("")]/;
+        reasonValid = regexReason.test(value);
+        break;
+      default:
+        break;
     }
 
-    if (name === "email" && value.length > 0 && value.includes("@")) {
-      this.setState({ emailValid: true }, this.validateForm);
-    } else if (name === "email" && value.length === 0 && !value.includes("@")) {
-      this.setState({ emailValid: false }, this.validateForm);
-    }
-
-    if (name === "visitReason" && value !== "") {
-      this.setState({ reasonValid: true }, this.validateForm);
-    } else if (name === "visitReason" && value === "") {
-      this.setState({ reasonValid: false }, this.validateForm);
-    }
+    this.setState(
+      {
+        nameValid: nameValid,
+        emailValid: emailValid,
+        reasonValid: reasonValid
+      },
+      this.validateForm
+    );
   };
 
   validateForm = () => {
@@ -81,9 +93,7 @@ class Login extends Component {
         Login
       </NavLink>
     ) : (
-      <button className="login-button" role="button">
-        Login
-      </button>
+      <button className="login-button">Login</button>
     );
     let error = this.throwErrorMessage();
     return (
