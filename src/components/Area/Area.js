@@ -10,14 +10,18 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
   };
 
   return (
-    <article name="hi" style={sectionStyle} id={id}>
+    <article style={sectionStyle} id={id}>
       <div className="area-card-info">
         <h3 className="area-title">{shortName}</h3>
         <h4 className="area-subtitle">{longName}</h4>
         <p>{about}</p>
       </div>
       <div name={id} className="view-listings-button-container">
-        <NavLink to={"/areas/" + id} className="view-listings-button" name={id}>
+        <NavLink
+          to={"/areas/" + id + "/listings"}
+          className="view-listings-button"
+          name={id}
+        >
           View Listings
         </NavLink>
       </div>
