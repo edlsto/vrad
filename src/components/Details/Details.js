@@ -1,5 +1,6 @@
 import React from "react";
 import "./Details.css";
+import Carousel from "../Carousel/Carousel";
 
 const Details = ({ selectedListing }) => {
   let { name, address, details, listing_id } = selectedListing;
@@ -23,22 +24,6 @@ const Details = ({ selectedListing }) => {
     let newWord = stringArray.join("");
     return newWord;
   };
-
-  // let featureHTML = "";
-  // features.forEach(feature => {
-  //   featureHTML += `<li>${feature}</li`;
-  // });
-
-  // let imageIds = ["a", "b", "c"];
-  // let images = imageIds.map(image => {
-  //   return (
-  //     <img
-  //       src={"../../../images/" + listing_id + `_${image}.jpg`}
-  //       alt=""
-  //       className="listing-img"
-  //     />
-  //   );
-  // });
 
   return (
     <section className="details">
@@ -79,11 +64,7 @@ const Details = ({ selectedListing }) => {
             </div>
           )}
         </div>
-        <img
-          src={"../../../images/" + listing_id + `_A.jpg`}
-          className="details-img"
-          alt=""
-        />
+        <Carousel listing_id={listing_id} />
       </div>
     </section>
   );
