@@ -24,6 +24,7 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
           to={"/areas/" + id + "/listings"}
           className="view-listings-button"
           name={id}
+          role="button"
         >
           View Listings
         </NavLink>

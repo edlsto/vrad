@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Listing = props => {
   return (
-    <div className="card">
+    <div data-testid="listing-card" className="card">
       <div className="property-title">
         <h3>{props.name}</h3>
       </div>
@@ -12,7 +12,7 @@ const Listing = props => {
         <img
           src={"../../../images/" + props.listing_id + "_a.jpg"}
           className="listings-page-img"
-          alt=""
+          alt={props.name}
         />
         {/* <button className="listings-btn">View</button> */}
         <Link

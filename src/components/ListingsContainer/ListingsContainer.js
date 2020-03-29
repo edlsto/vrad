@@ -10,7 +10,10 @@ class ListingsContainer extends Component {
 
   render() {
     return (
-      <section className="listings-card-container">
+      <section
+        data-testid="listing-container"
+        className="listings-card-container"
+      >
         <h2 className="listings-header">Listings</h2>
         <div className="listings-container-inner">
           {this.props.listingsData.map(listing => {
@@ -19,6 +22,7 @@ class ListingsContainer extends Component {
                 name={listing.name}
                 listing_id={listing.listing_id}
                 area_id={this.props.area_id}
+                key={listing.listing_id}
               />
             );
           })}
