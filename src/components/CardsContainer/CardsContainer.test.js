@@ -28,7 +28,5 @@ describe('CardsContainer', () => {
     expect(longNameElement).toBeInTheDocument()
     expect(areaDescriptionElement).toBeInTheDocument()
     expect(buttonElement).toBeInTheDocument()
-
-    //add image render when this is implemented
   })
 })
