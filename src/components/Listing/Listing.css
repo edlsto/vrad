@@ -23,7 +23,7 @@ h3 {
   width: 100%;
 }
 
-img {
+.listings-page-img {
   width: 100%;
   object-fit: cover;
   height: 15em;
