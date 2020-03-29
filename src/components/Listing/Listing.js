@@ -9,7 +9,11 @@ const Listing = props => {
         <h3>{props.name}</h3>
       </div>
       <div className="image-btn">
-        <img src={"../../../images/" + props.listing_id + "_a.jpg"} alt="" />
+        <img
+          src={"../../../images/" + props.listing_id + "_a.jpg"}
+          className="listings-page-img"
+          alt=""
+        />
         {/* <button className="listings-btn">View</button> */}
         <Link
           to={"/areas/" + props.area_id + "/listings/" + props.listing_id}
