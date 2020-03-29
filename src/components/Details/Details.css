@@ -1,0 +1,87 @@
+.details {
+  width: 70%;
+  margin: 2em auto;
+}
+
+.details-body {
+  display: flex;
+  margin-top: 2em;
+  width: 100%;
+}
+
+.details-title {
+  margin: 0;
+  padding: 0;
+}
+
+.details-address {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+.title-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.other-details-container {
+  flex: 0 0 30%;
+  padding-right: 2em;
+}
+
+.details-fav-btn {
+  max-width: 7em;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bed-bath-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.bed-bath-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cost-per-night-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  font-size: 1.3em;
+}
+
+ul {
+  line-height: 2;
+  list-style-position: inside;
+}
+
+.features-list {
+  background: #dff6ff;
+  width: 100%;
+  padding: 1.5em;
+}
+
+.features-title {
+  margin-bottom: 0.5em;
+}
+
+.num-beds,
+.num-baths {
+  font-size: 1.8em;
+}
+
+.cost-highlight {
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+i {
+  margin-right: 0.3em;
+}

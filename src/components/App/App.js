@@ -4,6 +4,7 @@ import Nav from "../Nav/Nav";
 import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import ListingsContainer from "../ListingsContainer/ListingsContainer";
+import Details from "../Details/Details";
 import { Route, NavLink, Redirect } from "react-router-dom";
 
 class App extends Component {
@@ -84,13 +85,32 @@ class App extends Component {
           />
           <Route
             exact
-            path="/areas/:id"
-            render={routeValues => (
-              <ListingsContainer
-                listingsData={this.state.listings}
-                {...routeValues}
-              />
-            )}
+            path="/areas/:id/listings"
+            render={({ match }) => {
+              const { id } = match.params;
+              let currentlyShownListings = this.state.listings.filter(
+                listing => listing.area_id === parseInt(id)
+              );
+              return (
+                <ListingsContainer
+                  listingsData={currentlyShownListings}
+                  area_id={parseInt(id)}
+                />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/areas/:id/listings/:listing"
+            render={({ match }) => {
+              const { listing } = match.params;
+              let selectedListing = this.state.listings.find(property => {
+                return property.listing_id === parseInt(listing);
+              });
+              if (this.state.listings.length > 0) {
+                return <Details selectedListing={selectedListing} />;
+              }
+            }}
           />
         </main>
       </div>

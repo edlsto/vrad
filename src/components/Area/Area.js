@@ -3,14 +3,13 @@ import "./Area.css";
 import { NavLink } from "react-router-dom";
 
 const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
-  console.log(shortName);
   let areaNameNoSpaces = shortName.replace(/\s/g, "");
   let sectionStyle = {
     backgroundImage: `url(../images/neighborhoods/${areaNameNoSpaces}.jpg)`
   };
 
   return (
-    <article name="hi" style={sectionStyle} id={id}>
+    <article style={sectionStyle} id={id}>
       <div className="area-card-info">
         <h3 className="area-title">
           <span className="area-highlight">{shortName}</span>
@@ -21,7 +20,12 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
         <p className="about">{about}</p>
       </div>
       <div name={id} className="view-listings-button-container">
-        <NavLink data-testid={id} role="button" to={"/areas/" + id} className="view-listings-button" name={id}>
+        <NavLink
+          to={"/areas/" + id + "/listings"}
+          className="view-listings-button"
+          name={id}
+          role="button"
+        >
           View Listings
         </NavLink>
       </div>

@@ -5,8 +5,9 @@ import { instanceOf } from "prop-types";
 const Nav = props => {
   return (
     <nav>
-      <h1>
-        VRAD<span className="nav-small">Vacation Rentals Around Denver</span>
+      <h1 className="nav-title">
+        VRAD
+        <span className="nav-subtitle">Vacation Rentals Around Denver</span>
       </h1>
       {props.userinfo.name && (
         <div className="logged-in-elements">

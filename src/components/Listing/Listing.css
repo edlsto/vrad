@@ -23,7 +23,7 @@ h3 {
   width: 100%;
 }
 
-img {
+.listings-page-img {
   width: 100%;
   object-fit: cover;
   height: 15em;
@@ -51,4 +51,7 @@ img {
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
+  width: 5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
 }
