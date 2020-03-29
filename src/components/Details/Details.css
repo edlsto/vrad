@@ -34,6 +34,7 @@
   max-width: 7em;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .bed-bath-container {

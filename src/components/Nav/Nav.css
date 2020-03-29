@@ -17,7 +17,7 @@ nav {
   align-items: center;
 }
 
-span {
+.nav-subtitle {
   font-size: 0.5em;
   padding-left: 0.6em;
 }
@@ -44,16 +44,26 @@ h1 {
   justify-content: space-between;
 }
 
-.log-out-container {
+.nav-btn-container {
   display: flex;
   align-items: center;
 }
 
-.log-out {
+.nav-btn {
   padding: 1em;
   height: auto;
   width: auto;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.fav-btn {
+  margin-right: 1em;
+}
+
+.trip-type {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em;
+  text-transform: capitalize;
 }

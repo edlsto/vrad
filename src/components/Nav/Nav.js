@@ -13,12 +13,17 @@ const Nav = props => {
         <div className="logged-in-elements">
           <div className="greeting-btn-container">
             <h2 className="greeting">Hello, {props.userinfo.name}</h2>
-            <button className="favorite-btn">
+            <div className="trip-type">
+              Trip type: {props.userinfo.visitReason}
+            </div>
+          </div>
+          <div className="nav-btn-container fav-btn">
+            <button className="nav-btn">
               Favorites ({props.userinfo.favorites.length})
             </button>
           </div>
-          <div className="log-out-container">
-            <button className="log-out">Log out</button>
+          <div className="nav-btn-container">
+            <button className="nav-btn">Log out</button>
           </div>
         </div>
       )}

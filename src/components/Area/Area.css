@@ -47,12 +47,28 @@ article {
   margin: 0;
 }
 
+.area-highlight {
+  background-color: rgba(235, 235, 235, 0.7);
+  padding-right: 0.2em;
+}
+
 .area-subtitle {
-  margin: 0 0 1em 0;
+  margin: 0.2em 0 1em 0;
+  /* background-color: whitesmoke;
+  box-decoration-break: clone;
+  display: inline;
+  position: relative; */
 }
 
 .card-background {
   object-fit: cover;
   height: 100%;
   background-size: relative;
+}
+
+.about {
+  background-color: rgba(235, 235, 235, 0.7);
+  box-decoration-break: clone;
+  display: inline;
+  position: relative;
 }

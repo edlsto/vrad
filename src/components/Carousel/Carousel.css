@@ -16,4 +16,9 @@
 
 .control-item {
   height: 2em;
+  cursor: pointer;
+}
+
+.image-number {
+  line-height: 2.2;
 }

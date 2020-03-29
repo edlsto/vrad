@@ -52,6 +52,11 @@ class Carousel extends Component {
               onClick={e => this.changeImage(e)}
             />
           </div>
+          <div>
+            <p className="image-number">
+              Photo {this.state.currentImageIndex + 1} of 3
+            </p>
+          </div>
           <div className="carousel-forward" onClick={e => this.changeImage(e)}>
             <img src={right} alt="" className="control-item" name="right" />
           </div>
