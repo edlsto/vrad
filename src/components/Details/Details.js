@@ -38,7 +38,6 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
           <i className={favorites.includes(listing_id) ? "fas fa-heart" : "far fa-heart"}></i>Favorite
         </button>
       </div>
-
       <div className="details-body">
         <div className="other-details-container">
           <div className="bed-bath-container">

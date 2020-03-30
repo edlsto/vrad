@@ -139,6 +139,7 @@ class App extends Component {
                 return property.listing_id === parseInt(listing);
               });
               if (this.state.listings.length > 0) {
+                console.log(selectedListing)
                 return <Details selectedListing={selectedListing} addDeleteFavorite={this.addDeleteFavorite} favorites={this.state.userInfo.favorites}/>;
               }
             }}
