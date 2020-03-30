@@ -1,6 +1,5 @@
 import React from "react";
 import "./Nav.css";
-import { instanceOf } from "prop-types";
 import { Link } from "react-router-dom";
 
 const Nav = props => {

@@ -40,7 +40,7 @@ class Carousel extends Component {
             ".jpg"
           }
           className="details-img"
-          alt=""
+          alt="A"
         />
         <div className="carousel-control">
           <div className="carousel-back" onClick={e => this.changeImage(e)}>

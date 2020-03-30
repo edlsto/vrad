@@ -39,7 +39,6 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
           Favorite
         </button>
       </div>
-
       <div className="details-body">
         <div className="other-details-container">
           <div className="bed-bath-container">
