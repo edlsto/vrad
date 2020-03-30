@@ -64,38 +64,41 @@ class App extends Component {
     });
   };
 
-  addDeleteFavorite = (id) => {
-    console.log(id)
-    let currentFavorites = this.state.userInfo.favorites
-    if(currentFavorites.includes(id)) {
-      currentFavorites.splice((currentFavorites.indexOf(id)), 1)
-      this.setState({userInfo:
-        {
+  addDeleteFavorite = id => {
+    let currentFavorites = this.state.userInfo.favorites;
+    if (currentFavorites.includes(id)) {
+      currentFavorites.splice(currentFavorites.indexOf(id), 1);
+      this.setState({
+        userInfo: {
           name: this.state.userInfo.name,
           email: this.state.userInfo.email,
           visitReason: this.state.userInfo.visitReason,
           favorites: currentFavorites
-        }})
+        }
+      });
     } else {
       let userFavorites = currentFavorites.concat([id]);
-      this.setState({userInfo:
-      {
-        name: this.state.userInfo.name,
-        email: this.state.userInfo.email,
-        visitReason: this.state.userInfo.visitReason,
-        favorites: userFavorites
-      }})
+      this.setState({
+        userInfo: {
+          name: this.state.userInfo.name,
+          email: this.state.userInfo.email,
+          visitReason: this.state.userInfo.visitReason,
+          favorites: userFavorites
+        }
+      });
     }
-  }
+  };
 
   logOutUser = () => {
-    this.setState({userInfo: {name: "", email: "", visitReason: "", favorites: []}})
-  }
+    this.setState({
+      userInfo: { name: "", email: "", visitReason: "", favorites: [] }
+    });
+  };
 
   render() {
     return (
       <div>
-        <Nav userinfo={this.state.userInfo} logOutUser={this.logOutUser}/>
+        <Nav userinfo={this.state.userInfo} logOutUser={this.logOutUser} />
         <main className={this.props.isLoggedIn ? "logged-in" : ""}>
           <Route
             exact
@@ -116,7 +119,7 @@ class App extends Component {
             path="/areas/:id/listings"
             render={({ match, history }) => {
               const { id } = match.params;
-              const { pathname } = history.location
+              const { pathname } = history.location;
               let currentlyShownListings = this.state.listings.filter(
                 listing => listing.area_id === parseInt(id)
               );
@@ -125,6 +128,8 @@ class App extends Component {
                   listingsData={currentlyShownListings}
                   area_id={parseInt(id)}
                   pathname={pathname}
+                  favorites={this.state.userInfo.favorites}
+                  addDeleteFavorite={this.addDeleteFavorite}
                 />
               );
             }}
@@ -138,21 +143,38 @@ class App extends Component {
                 return property.listing_id === parseInt(listing);
               });
               if (this.state.listings.length > 0) {
-                console.log(selectedListing)
-                return <Details selectedListing={selectedListing} addDeleteFavorite={this.addDeleteFavorite} favorites={this.state.userInfo.favorites}/>;
+                return (
+                  <Details
+                    selectedListing={selectedListing}
+                    addDeleteFavorite={this.addDeleteFavorite}
+                    favorites={this.state.userInfo.favorites}
+                  />
+                );
               }
             }}
           />
           <Route
-          exact
-          path="/favorites"
-          render={routeValues => {
-            const { pathname } = routeValues.location
-            let favoriteListings = this.state.userInfo.favorites.map(favorite => {
-              return this.state.listings.find(listing => listing.listing_id === favorite)
-            })
-            return <ListingsContainer listingsData={favoriteListings} {...routeValues}  pathname={pathname}/>
-          }}
+            exact
+            path="/favorites"
+            render={routeValues => {
+              const { pathname } = routeValues.location;
+              let favoriteListings = this.state.userInfo.favorites.map(
+                favorite => {
+                  return this.state.listings.find(
+                    listing => listing.listing_id === favorite
+                  );
+                }
+              );
+              return (
+                <ListingsContainer
+                  listingsData={favoriteListings}
+                  {...routeValues}
+                  pathname={pathname}
+                  favorites={this.state.userInfo.favorites}
+                  addDeleteFavorite={this.addDeleteFavorite}
+                />
+              );
+            }}
           />
         </main>
       </div>
