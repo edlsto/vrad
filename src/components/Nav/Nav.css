@@ -50,13 +50,27 @@ h1 {
 }
 
 .nav-btn {
-  padding: 1em;
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 1em;
+  background-color: white;
+  color: black;
   width: auto;
+  height: auto;
+  text-decoration: none;
+  padding: 1em;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   cursor: pointer;
 }
+
+.nav-btn:hover {
+  background-color: green;
+  color: white;
+}
+
 
 .fav-btn {
   margin-right: 1em;

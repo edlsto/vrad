@@ -64,10 +64,39 @@ class App extends Component {
     });
   };
 
+  addDeleteFavorite = (id) => {
+    console.log(id)
+    let currentFavorites = this.state.userInfo.favorites
+    if(currentFavorites.includes(id)) {
+      currentFavorites.splice((currentFavorites.indexOf(id)), 1)
+      this.setState({userInfo:
+        {
+          name: this.state.userInfo.name,
+          email: this.state.userInfo.email,
+          visitReason: this.state.userInfo.visitReason,
+          favorites: currentFavorites
+        }})
+    } else {
+      let userFavorites = currentFavorites.concat([id]);
+      this.setState({userInfo:
+      {
+        name: this.state.userInfo.name,
+        email: this.state.userInfo.email,
+        visitReason: this.state.userInfo.visitReason,
+        favorites: userFavorites
+      }})
+    }
+  }
+
+  logOutUser = () => {
+    console.log('test')
+    this.setState({userInfo: {name: "", email: "", visitReason: "", favorites: []}})
+  }
+
   render() {
     return (
       <div>
-        <Nav userinfo={this.state.userInfo} />
+        <Nav userinfo={this.state.userInfo} logOutUser={this.logOutUser}/>
         <main className={this.props.isLoggedIn ? "logged-in" : ""}>
           <Route
             exact
@@ -86,8 +115,9 @@ class App extends Component {
           <Route
             exact
             path="/areas/:id/listings"
-            render={({ match }) => {
+            render={({ match, history }) => {
               const { id } = match.params;
+              const { pathname } = history.location
               let currentlyShownListings = this.state.listings.filter(
                 listing => listing.area_id === parseInt(id)
               );
@@ -95,6 +125,7 @@ class App extends Component {
                 <ListingsContainer
                   listingsData={currentlyShownListings}
                   area_id={parseInt(id)}
+                  pathname={pathname}
                 />
               );
             }}
@@ -108,9 +139,20 @@ class App extends Component {
                 return property.listing_id === parseInt(listing);
               });
               if (this.state.listings.length > 0) {
-                return <Details selectedListing={selectedListing} />;
+                return <Details selectedListing={selectedListing} addDeleteFavorite={this.addDeleteFavorite} favorites={this.state.userInfo.favorites}/>;
               }
             }}
+          />
+          <Route
+          exact
+          path="/favorites"
+          render={routeValues => {
+            const { pathname } = routeValues.location
+            let favoriteListings = this.state.userInfo.favorites.map(favorite => {
+              return this.state.listings.find(listing => listing.listing_id === favorite)
+            })
+            return <ListingsContainer listingsData={favoriteListings} {...routeValues}  pathname={pathname}/>
+          }}
           />
         </main>
       </div>

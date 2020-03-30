@@ -1,6 +1,7 @@
 import React from "react";
 import "./Nav.css";
 import { instanceOf } from "prop-types";
+import { Link } from "react-router-dom";
 
 const Nav = props => {
   return (
@@ -17,13 +18,13 @@ const Nav = props => {
               Trip type: {props.userinfo.visitReason}
             </div>
           </div>
-          <div className="nav-btn-container fav-btn">
-            <button className="nav-btn">
+          <div  className="nav-btn-container fav-btn">
+            <Link to="/favorites" className="nav-btn">
               Favorites ({props.userinfo.favorites.length})
-            </button>
+            </Link>
           </div>
-          <div className="nav-btn-container">
-            <button className="nav-btn">Log out</button>
+          <div onClick={e => props.logOutUser(e)} className="nav-btn-container">
+            <Link to="/" className="nav-btn">Log out</Link>
           </div>
         </div>
       )}

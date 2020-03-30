@@ -14,7 +14,7 @@ class ListingsContainer extends Component {
         data-testid="listing-container"
         className="listings-card-container"
       >
-        <h2 className="listings-header">Listings</h2>
+        <h2 className="listings-header">{this.props.pathname.includes('/favorites') ? "Favorites" : "Listings"}</h2>
         <div className="listings-container-inner">
           {this.props.listingsData.map(listing => {
             return (

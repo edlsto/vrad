@@ -2,7 +2,7 @@ import React from "react";
 import "./Details.css";
 import Carousel from "../Carousel/Carousel";
 
-const Details = ({ selectedListing }) => {
+const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
   let { name, address, details, listing_id } = selectedListing;
   let { street, zip } = address;
   let { beds, baths, cost_per_night, features } = details;
@@ -34,8 +34,8 @@ const Details = ({ selectedListing }) => {
             {street} {zip}
           </h2>
         </div>
-        <button className="details-fav-btn">
-          <i class="far fa-heart"></i>Favorite
+        <button className={favorites.includes(listing_id) ? "details-active" : "details-fav-btn"} onClick={e => addDeleteFavorite(listing_id)}>
+          <i className={favorites.includes(listing_id) ? "fas fa-heart" : "far fa-heart"}></i>Favorite
         </button>
       </div>
 
