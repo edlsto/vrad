@@ -89,7 +89,6 @@ class App extends Component {
   }
 
   logOutUser = () => {
-    console.log('test')
     this.setState({userInfo: {name: "", email: "", visitReason: "", favorites: []}})
   }
 
