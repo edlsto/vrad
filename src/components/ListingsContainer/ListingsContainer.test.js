@@ -1,5 +1,5 @@
 import React from 'react'
-import  { render, fireEvent } from '@testing-library/react';
+import  { render } from '@testing-library/react';
 import ListingsContainer from './ListingsContainer.js';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom'

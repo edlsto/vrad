@@ -5,7 +5,7 @@ import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import ListingsContainer from "../ListingsContainer/ListingsContainer";
 import Details from "../Details/Details";
-import { Route, NavLink, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
