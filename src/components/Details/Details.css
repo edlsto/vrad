@@ -35,7 +35,25 @@
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   cursor: pointer;
+  outline: none;
 }
+
+.details-active {
+  max-width: 7em;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: red;
+  outline: none;
+}
+
+.details-active:hover {
+  cursor: pointer;
+  background-color: red;
+  outline: none;
+}
+
 
 .bed-bath-container {
   display: flex;
