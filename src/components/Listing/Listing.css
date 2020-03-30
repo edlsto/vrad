@@ -40,12 +40,18 @@ h3 {
   position: relative;
 }
 
-.listings-btn {
+.btns-container {
+  display: flex;
+  justify-content: space-around;
   position: absolute;
   bottom: 1em;
+  width: 100%;
+}
+
+.listings-btn {
   left: 0;
   right: 0;
-  margin: auto;
+  /* margin: auto; */
   background: #ce2828;
   color: white;
   text-transform: uppercase;
@@ -54,4 +60,24 @@ h3 {
   width: 5em;
   padding: 0.5em 1em;
   text-decoration: none;
+  height: auto;
+}
+
+.listing-heart-active {
+  color: red;
+}
+
+.listing-heart-inactive {
+  color: lightgray;
+}
+
+.listing-heart-container {
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.5em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  cursor: pointer;
 }

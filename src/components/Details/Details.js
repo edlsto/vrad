@@ -7,17 +7,6 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
   let { street, zip } = address;
   let { beds, baths, cost_per_night, features } = details;
 
-  console.log(
-    name,
-    address,
-    street,
-    zip,
-    beds,
-    baths,
-    cost_per_night,
-    features
-  );
-
   const uppercase = string => {
     let stringArray = string.split("");
     stringArray[0] = stringArray[0].toUpperCase();
@@ -34,8 +23,20 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
             {street} {zip}
           </h2>
         </div>
-        <button className={favorites.includes(listing_id) ? "details-active" : "details-fav-btn"} onClick={e => addDeleteFavorite(listing_id)}>
-          <i className={favorites.includes(listing_id) ? "fas fa-heart" : "far fa-heart"}></i>Favorite
+        <button
+          className={
+            favorites.includes(listing_id)
+              ? "details-active"
+              : "details-fav-btn"
+          }
+          onClick={e => addDeleteFavorite(listing_id)}
+        >
+          <i
+            className={
+              favorites.includes(listing_id) ? "fas fa-heart" : "far fa-heart"
+            }
+          ></i>
+          Favorite
         </button>
       </div>
 
