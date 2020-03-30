@@ -17,6 +17,7 @@ describe("ListingsContainer", () => {
           pathname: 590
         }}
         pathname="/listings"
+        favorites={[]}
       /></Router>
     )
 
