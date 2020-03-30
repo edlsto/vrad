@@ -115,8 +115,9 @@ class App extends Component {
           <Route
             exact
             path="/areas/:id/listings"
-            render={({ match, routeValues }) => {
+            render={({ match, history }) => {
               const { id } = match.params;
+              const { pathname } = history.location
               let currentlyShownListings = this.state.listings.filter(
                 listing => listing.area_id === parseInt(id)
               );
@@ -124,7 +125,7 @@ class App extends Component {
                 <ListingsContainer
                   listingsData={currentlyShownListings}
                   area_id={parseInt(id)}
-                  {...routeValues}
+                  pathname={pathname}
                 />
               );
             }}
@@ -146,10 +147,11 @@ class App extends Component {
           exact
           path="/favorites"
           render={routeValues => {
+            const { pathname } = routeValues.location
             let favoriteListings = this.state.userInfo.favorites.map(favorite => {
               return this.state.listings.find(listing => listing.listing_id === favorite)
             })
-            return <ListingsContainer listingsData={favoriteListings} {...routeValues}/>
+            return <ListingsContainer listingsData={favoriteListings} {...routeValues}  pathname={pathname}/>
           }}
           />
         </main>
