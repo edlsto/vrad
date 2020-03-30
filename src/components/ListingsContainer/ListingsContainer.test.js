@@ -16,6 +16,7 @@ describe("ListingsContainer", () => {
         location= {{
           pathname: 590
         }}
+        pathname="/listings"
       /></Router>
     )
 

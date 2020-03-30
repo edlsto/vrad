@@ -2,16 +2,17 @@ import React from 'react'
 import  { render, fireEvent } from '@testing-library/react';
 import Nav from './Nav.js';
 import '@testing-library/jest-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 describe('Nav', () => {
   it('renders the text we expect', () => {
     const { getByText } = render(
-    <Nav userinfo={
+    <Router><Nav userinfo={
       {name: "Ed",
       email: "email@email.com",
       visitReason: "Vacation",
-      favorites: []}}/>);
+      favorites: []}}/></Router>);
 
     const headerElement = getByText("VRAD");
     const smallHeaderElement = getByText("Vacation Rentals Around Denver");
