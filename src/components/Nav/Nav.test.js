@@ -25,4 +25,38 @@ describe('Nav', () => {
     expect(favroiteButtonEl).toBeInTheDocument();
     expect(LogButtonEl).toBeInTheDocument()
   })
+
+  it('should be able to log out', () => {
+    const mockLogOutUser = jest.fn()
+
+    const { getByText } = render(
+      <Router>
+        <Nav
+        userinfo={
+        {name: "Ed",
+        email: "email@email.com",
+        visitReason: "Vacation",
+        favorites: []}}
+        logOutUser={mockLogOutUser}
+        /></Router>)
+
+    fireEvent.click(getByText("Log out"));
+
+    expect(mockLogOutUser).toHaveBeenCalled()
+  })
+
+  it('should be able to direct user to favorites', () => {
+    const { getByText } = render(
+      <Router>
+        <Nav
+        userinfo={
+        {name: "Ed",
+        email: "email@email.com",
+        visitReason: "Vacation",
+        favorites: []}}
+        /></Router>)
+
+    fireEvent.click(getByText("Favorites (0)"))
+    
+  })
 })
