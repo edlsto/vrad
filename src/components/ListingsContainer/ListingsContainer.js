@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./ListingsContainer.css";
 import Listing from "../Listing/Listing";
 
@@ -29,7 +30,6 @@ class ListingsContainer extends Component {
         )}
         <div className="listings-container-inner">
           {this.props.listingsData.map(listing => {
-            console.log(this.props.favorites);
             return (
               <Listing
                 name={listing.name}
@@ -48,3 +48,11 @@ class ListingsContainer extends Component {
 }
 
 export default ListingsContainer;
+
+ListingsContainer.propTypes = {
+  addDeleteFavorite: PropTypes.func,
+  area_id: PropTypes.number,
+  favorites: PropTypes.array,
+  pathname: PropTypes.string,
+  listingsData: PropTypes.array
+};
