@@ -23,6 +23,7 @@ article {
   color: black;
   text-decoration: none;
   font-family: Domine;
+  margin-top: 1em;
 }
 
 .view-listings-button {
@@ -48,7 +49,7 @@ article {
 }
 
 .area-highlight {
-  background-color: rgba(235, 235, 235, 0.7);
+  background-color: white;
   padding-right: 0.2em;
 }
 
@@ -67,7 +68,7 @@ article {
 }
 
 .about {
-  background-color: rgba(235, 235, 235, 0.7);
+  background-color: white;
   box-decoration-break: clone;
   display: inline;
   position: relative;
