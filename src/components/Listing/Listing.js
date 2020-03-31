@@ -23,6 +23,7 @@ const Listing = props => {
             View
           </Link>
           <div
+            data-testid="favorite-btn"
             className="listing-heart-container"
             onClick={e => props.addDeleteFavorite(props.listing_id)}
           >
