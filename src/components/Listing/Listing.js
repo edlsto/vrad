@@ -18,6 +18,7 @@ const Listing = props => {
           <Link
             to={"/areas/" + props.area_id + "/listings/" + props.listing_id}
             className="listings-btn"
+            data-testid={props.listing_id}
           >
             View
           </Link>
