@@ -41,13 +41,15 @@ class Carousel extends Component {
             ".jpg"
           }
           className="details-img"
-          alt="A"
+          alt={
+            this.props.listing_id + "_" + imageIds[this.state.currentImageIndex]
+          }
         />
         <div className="carousel-control">
           <div className="carousel-back" onClick={e => this.changeImage(e)}>
             <img
               src={left}
-              alt=""
+              alt="left-arrow"
               className="control-item"
               name="left"
               onClick={e => this.changeImage(e)}
@@ -59,7 +61,12 @@ class Carousel extends Component {
             </p>
           </div>
           <div className="carousel-forward" onClick={e => this.changeImage(e)}>
-            <img src={right} alt="" className="control-item" name="right" />
+            <img
+              src={right}
+              alt="right-arrow"
+              className="control-item"
+              name="right"
+            />
           </div>
         </div>
       </section>
