@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./Details.css";
 import Carousel from "../Carousel/Carousel";
 
@@ -57,8 +59,8 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
             <div className="features-list">
               <h3 className="features-title">Features</h3>
               <ul>
-                {features.map(feature => {
-                  return <li>{uppercase(feature)}</li>;
+                {features.map((feature, i) => {
+                  return <li key={i}>{uppercase(feature)}</li>;
                 })}
               </ul>
             </div>
@@ -71,3 +73,9 @@ const Details = ({ selectedListing, addDeleteFavorite, favorites }) => {
 };
 
 export default Details;
+
+Details.propTypes = {
+  addDeleteFavorite: PropTypes.func,
+  favorites: PropTypes.array,
+  selectedListing: PropTypes.object
+};

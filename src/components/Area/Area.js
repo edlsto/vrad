@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./Area.css";
 import { NavLink } from "react-router-dom";
 
@@ -9,7 +11,7 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
   };
 
   return (
-    <article  style={sectionStyle} id={id}>
+    <article style={sectionStyle} id={id}>
       <div className="area-card-info">
         <h3 className="area-title">
           <span className="area-highlight">{shortName}</span>
@@ -35,3 +37,11 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
 };
 
 export default Area;
+
+Area.propTypes = {
+  about: PropTypes.string,
+  "data-testid": PropTypes.string,
+  id: PropTypes.number,
+  longName: PropTypes.string,
+  shortName: PropTypes.string
+};

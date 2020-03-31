@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Listing.css";
 import { Link } from "react-router-dom";
 
@@ -42,3 +43,11 @@ const Listing = props => {
 };
 
 export default Listing;
+
+Listing.propTypes = {
+  name: PropTypes.string,
+  listing_id: PropTypes.number,
+  area_id: PropTypes.number,
+  addDeleteFavorite: PropTypes.func,
+  favorite: PropTypes.bool
+};
