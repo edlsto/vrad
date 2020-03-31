@@ -4,6 +4,9 @@ import App from "./App";
 import "@testing-library/jest-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import { getAllListings } from "../../helpers";
+jest.mock("../../helpers.js");
+
 afterEach(cleanup);
 
 describe("App", () => {
@@ -78,6 +81,30 @@ describe("App", () => {
       </Router>
     );
 
+    getAllListings.mockResolvedValueOnce([
+      {
+        listing_id: 66,
+        area_id: 240,
+        name: "Cap Hill Overlook",
+        address: {
+          street: "925 N Lincoln St",
+          zip: 80203
+        },
+        details: {
+          neighborhood_id: 651251,
+          superhost: true,
+          seller_source: "55ccsa",
+          beds: 3,
+          baths: 1.75,
+          cost_per_night: 400,
+          features: ["rooftop", "fireplace", "pool", "leather couch"]
+        },
+        dev_id: "rcirdo",
+        area: "capHill",
+        db_connect: 736524
+      }
+    ]);
+
     await waitFor(() => getByText("RiNo"));
     fireEvent.click(getByTestId("240"));
     const listing = await waitFor(() => getByText("Cap Hill Overlook"));
@@ -90,7 +117,32 @@ describe("App", () => {
         <App />
       </Router>
     );
-    await waitFor(() => getByText("Cap Hill Castle"));
+
+    getAllListings.mockResolvedValueOnce([
+      {
+        listing_id: 66,
+        area_id: 240,
+        name: "Cap Hill Overlook",
+        address: {
+          street: "925 N Lincoln St",
+          zip: 80203
+        },
+        details: {
+          neighborhood_id: 651251,
+          superhost: true,
+          seller_source: "55ccsa",
+          beds: 3,
+          baths: 1.75,
+          cost_per_night: 400,
+          features: ["rooftop", "fireplace", "pool", "leather couch"]
+        },
+        dev_id: "rcirdo",
+        area: "capHill",
+        db_connect: 736524
+      }
+    ]);
+
+    await waitFor(() => getByText("Cap Hill Overlook"));
     fireEvent.click(getByTestId("66"));
     const listing = await waitFor(() => getByText("925 N Lincoln St 80203"));
     expect(listing).toBeInTheDocument();

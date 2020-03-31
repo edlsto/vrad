@@ -6,12 +6,12 @@ import CardsContainer from "../CardsContainer/CardsContainer";
 import ListingsContainer from "../ListingsContainer/ListingsContainer";
 import Details from "../Details/Details";
 import { Route } from "react-router-dom";
+import { getAllListings } from "../../helpers.js";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false,
       userInfo: { name: "", email: "", visitReason: "", favorites: [] },
       areas: [],
       listings: []
@@ -45,21 +45,11 @@ class App extends Component {
   }
 
   getListingsData = areasData => {
-    const result = areasData.reduce((allListings, area) => {
-      area.listings.forEach(listing => allListings.push(listing));
-      return allListings;
-    }, []);
-    const promises = result.map(listing => {
-      return fetch("http://localhost:3001" + listing).then(response =>
-        response.json()
-      );
-    });
-    Promise.all(promises).then(data => this.setState({ listings: data }));
+    getAllListings(areasData).then(data => this.setState({ listings: data }));
   };
 
   logInUser = user => {
     this.setState({
-      isLoggedIn: true,
       userInfo: user
     });
   };
@@ -99,7 +89,7 @@ class App extends Component {
     return (
       <div>
         <Nav userinfo={this.state.userInfo} logOutUser={this.logOutUser} />
-        <main className={this.props.isLoggedIn ? "logged-in" : ""}>
+        <main>
           <Route
             exact
             path="/"
