@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./Nav.css";
 import { Link } from "react-router-dom";
 
@@ -17,13 +19,15 @@ const Nav = props => {
               Trip type: {props.userinfo.visitReason}
             </div>
           </div>
-          <div  className="nav-btn-container fav-btn">
+          <div className="nav-btn-container fav-btn">
             <Link to="/favorites" className="nav-btn">
               Favorites ({props.userinfo.favorites.length})
             </Link>
           </div>
           <div onClick={e => props.logOutUser(e)} className="nav-btn-container">
-            <Link to="/" className="nav-btn">Log out</Link>
+            <Link to="/" className="nav-btn">
+              Log out
+            </Link>
           </div>
         </div>
       )}
@@ -32,3 +36,8 @@ const Nav = props => {
 };
 
 export default Nav;
+
+Nav.propTypes = {
+  logOutUser: PropTypes.func,
+  userInfo: PropTypes.object
+};
