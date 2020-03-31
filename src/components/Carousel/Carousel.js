@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import "./Carousel.css";
 import left from "../../assets/left.png";
 import right from "../../assets/right.png";
@@ -17,7 +19,6 @@ class Carousel extends Component {
 
   changeImage(e) {
     let { name } = e.target;
-    console.log(name);
     const newIndex =
       name === "right"
         ? this.mod(this.state.currentImageIndex + 1, 3)
@@ -67,3 +68,7 @@ class Carousel extends Component {
 }
 
 export default Carousel;
+
+Carousel.propTypes = {
+  listing_id: PropTypes.number
+};
