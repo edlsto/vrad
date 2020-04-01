@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./ListingsContainer.css";
 import Listing from "../Listing/Listing";
+import MapContainer from "../MapContainer/MapContainer";
 
 const ListingsContainer = props => {
   return (
@@ -9,6 +10,7 @@ const ListingsContainer = props => {
       data-testid="listing-container"
       className="listings-card-container"
     >
+      {" "}
       <h2 className="listings-header">
         {props.pathname.includes("/favorites") ? "Favorites" : "Listings"}
       </h2>
@@ -20,7 +22,8 @@ const ListingsContainer = props => {
         ""
       )}
       <div className="listings-container-inner">
-        {props.listingsData.map(listing => {
+        <MapContainer />
+        {/* {props.listingsData.map(listing => {
           return (
             <Listing
               name={listing.name}
@@ -31,7 +34,7 @@ const ListingsContainer = props => {
               addDeleteFavorite={props.addDeleteFavorite}
             />
           );
-        })}
+        })} */}
       </div>
     </section>
   );
