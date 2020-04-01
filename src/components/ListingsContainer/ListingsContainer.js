@@ -1,29 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./ListingsContainer.css";
 import Listing from "../Listing/Listing";
 import MapContainer from "../MapContainer/MapContainer";
+import { render } from "react-dom";
 
-const ListingsContainer = props => {
-  return (
-    <section
-      data-testid="listing-container"
-      className="listings-card-container"
-    >
-      {" "}
-      <h2 className="listings-header">
-        {props.pathname.includes("/favorites") ? "Favorites" : "Listings"}
-      </h2>
-      {props.favorites.length === 0 && props.pathname === "/favorites" ? (
-        <div class="no-favorites">
-          <h3>You have no favorites!</h3>
-        </div>
-      ) : (
-        ""
-      )}
-      <div className="listings-container-inner">
-        <MapContainer />
-        {/* {props.listingsData.map(listing => {
+class ListingsContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {}
+
+  render() {
+    return (
+      <section
+        data-testid="listing-container"
+        className="listings-card-container"
+      >
+        {" "}
+        <h2 className="listings-header">
+          {props.pathname.includes("/favorites") ? "Favorites" : "Listings"}
+        </h2>
+        {props.favorites.length === 0 && props.pathname === "/favorites" ? (
+          <div class="no-favorites">
+            <h3>You have no favorites!</h3>
+          </div>
+        ) : (
+          ""
+        )}
+        <div className="listings-container-inner">
+          <MapContainer />
+          {/* {props.listingsData.map(listing => {
           return (
             <Listing
               name={listing.name}
@@ -35,10 +43,11 @@ const ListingsContainer = props => {
             />
           );
         })} */}
-      </div>
-    </section>
-  );
-};
+        </div>
+      </section>
+    );
+  }
+}
 
 export default ListingsContainer;
 
