@@ -10,12 +10,32 @@ const style = {
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
+    };
   }
 
   onMouseoverMarker() {
     console.log("hi");
   }
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onMapClicked = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
 
   render() {
     var points = this.props.listings.map(listing => {
@@ -52,10 +72,19 @@ export class MapContainer extends Component {
           return (
             <Marker
               position={{ lat: +listing.lat, lng: +listing.lng }}
-              onMouseover={this.onMouseoverMarker}
+              onClick={this.onMarkerClick}
+              name={listing.name}
             />
           );
         })}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
+          <div>
+            <h3>{this.state.selectedPlace.name}</h3>
+          </div>
+        </InfoWindow>
       </Map>
     );
   }
