@@ -1,8 +1,8 @@
 import React from "react";
-import "./Pin.css";
+import "./Marker.css";
 import { Link } from "react-router-dom";
 
-class Pin extends React.Component {
+class Marker extends React.Component {
   render() {
     return (
       <Link
@@ -19,4 +19,4 @@ class Pin extends React.Component {
   }
 }
 
-export default Pin;
+export default Marker;

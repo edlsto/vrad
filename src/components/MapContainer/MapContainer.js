@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
-import Pin from "./Pin/Pin";
+// import Marker from "../Marker/Marker";
 
 const style = {
   width: "50%",
@@ -12,6 +12,11 @@ export class MapContainer extends Component {
     super(props);
     this.state = {};
   }
+
+  onMouseoverMarker() {
+    console.log("hi");
+  }
+
   render() {
     var points = this.props.listings.map(listing => {
       return {
@@ -42,7 +47,16 @@ export class MapContainer extends Component {
         zoom={12}
         onClick={this.onMapClicked}
         bounds={bounds}
-      />
+      >
+        {this.props.listings.map(listing => {
+          return (
+            <Marker
+              position={{ lat: +listing.lat, lng: +listing.lng }}
+              onMouseover={this.onMouseoverMarker}
+            />
+          );
+        })}
+      </Map>
     );
   }
 }
