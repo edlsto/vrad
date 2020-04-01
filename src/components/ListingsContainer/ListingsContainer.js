@@ -8,9 +8,40 @@ import { render } from "react-dom";
 class ListingsContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = { listingsToMap: [] };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.getLatLong(this.props.listingsData);
+  }
+
+  getLatLong = listingsToMap => {
+    let listings = listingsToMap.map(listing => {
+      console.log(listing.address.street);
+      return fetch(
+        `https://nominatim.openstreetmap.org/?addressdetails=1&q=${listing.address.street
+          .split(" ")
+          .join("+")}+${listing.address.zip}&format=json&limit=1`
+      )
+        .then(response => response.json())
+        .then(data => {
+          console.log(data[0].lat);
+          return {
+            listing_id: listing.listing_id,
+            area_id: listing.area_id,
+            name: listing.name,
+            lat: data[0].lat,
+            lng: data[0].lon,
+            address: listing.address,
+            details: listing.details
+          };
+        })
+        .catch(error => console.log(error));
+    });
+    Promise.all(listings).then(response =>
+      this.setState({ listingsToMap: response })
+    );
+  };
 
   render() {
     return (
@@ -20,9 +51,12 @@ class ListingsContainer extends Component {
       >
         {" "}
         <h2 className="listings-header">
-          {props.pathname.includes("/favorites") ? "Favorites" : "Listings"}
+          {this.props.pathname.includes("/favorites")
+            ? "Favorites"
+            : "Listings"}
         </h2>
-        {props.favorites.length === 0 && props.pathname === "/favorites" ? (
+        {this.props.favorites.length === 0 &&
+        this.props.pathname === "/favorites" ? (
           <div class="no-favorites">
             <h3>You have no favorites!</h3>
           </div>
@@ -30,7 +64,7 @@ class ListingsContainer extends Component {
           ""
         )}
         <div className="listings-container-inner">
-          <MapContainer />
+          <MapContainer listings={this.state.listingsToMap} />
           {/* {props.listingsData.map(listing => {
           return (
             <Listing
