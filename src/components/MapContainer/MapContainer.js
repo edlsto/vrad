@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import Pin from "./Pin/Pin";
 
 const style = {
   width: "50%",
