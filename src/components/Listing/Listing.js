@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 const Listing = props => {
   return (
-    <div data-testid="listing-card" className="card">
+    <div
+      data-testid="listing-card"
+      className={props.highlighted ? "card highlighted" : "card"}
+    >
       <div className="property-title">
         <h3>{props.name}</h3>
       </div>
