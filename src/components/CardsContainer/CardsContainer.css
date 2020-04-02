@@ -16,7 +16,7 @@
 .areas-card-container {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  width: 80%;
   height: fit-content;
   min-height: 80vh;
   justify-content: center;
