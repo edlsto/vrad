@@ -8,12 +8,17 @@ import { render } from "react-dom";
 class ListingsContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { listingsToMap: [] };
+    this.state = { listingsToMap: [], highlightedListing: {} };
   }
 
   componentDidMount() {
     this.getLatLong(this.props.listingsData);
   }
+
+  highlightListing = listingID => {
+    console.log(listingID);
+    this.setState({ highlightedListing: listingID });
+  };
 
   getLatLong = listingsToMap => {
     let listings = listingsToMap.map(listing => {
@@ -25,7 +30,6 @@ class ListingsContainer extends Component {
       )
         .then(response => response.json())
         .then(data => {
-          console.log(data[0].lat);
           return {
             listing_id: listing.listing_id,
             area_id: listing.area_id,
@@ -64,19 +68,31 @@ class ListingsContainer extends Component {
           ""
         )}
         <div className="listings-container-inner">
-          <MapContainer listings={this.state.listingsToMap} />
-          {/* {props.listingsData.map(listing => {
-          return (
-            <Listing
-              name={listing.name}
-              listing_id={listing.listing_id}
-              area_id={props.area_id}
-              key={listing.listing_id}
-              favorite={props.favorites.includes(listing.listing_id)}
-              addDeleteFavorite={props.addDeleteFavorite}
+          <div className="card card-map-container">
+            <MapContainer
+              listings={this.state.listingsToMap}
+              highlightListing={this.highlightListing}
             />
-          );
-        })} */}
+          </div>
+          {this.props.listingsData.map(listing => {
+            console.log(this.state.highlightedListing);
+
+            return (
+              <Listing
+                highlighted={
+                  this.state.highlightedListing === listing.listing_id
+                    ? true
+                    : false
+                }
+                name={listing.name}
+                listing_id={listing.listing_id}
+                area_id={this.props.area_id}
+                key={listing.listing_id}
+                favorite={this.props.favorites.includes(listing.listing_id)}
+                addDeleteFavorite={this.props.addDeleteFavorite}
+              />
+            );
+          })}
         </div>
       </section>
     );
