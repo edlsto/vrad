@@ -81,3 +81,21 @@ h3 {
   padding-bottom: 0.2em;
   cursor: pointer;
 }
+
+.highlighted .property-title {
+  background: #a5d3e5;
+}
+
+.highlighted .listings-btn {
+  background: #a5d3e5;
+  color: black;
+}
+
+.highlighted .listing-heart-container {
+  background: #a5d3e5;
+  color: black;
+}
+
+.highlighted .listing-heart-inactive {
+  color: #3e3e3e;
+}

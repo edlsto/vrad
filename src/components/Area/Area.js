@@ -12,13 +12,12 @@ const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
 
   return (
     <article style={sectionStyle} id={id}>
-      <div className="area-card-info">
+      <div className="title-subtitle-container">
         <h3 className="area-title">
-          <span className="area-highlight">{shortName}</span>
+          {shortName} <span className="area-subtitle">({longName})</span>
         </h3>
-        <h4 className="area-subtitle">
-          <span className="area-highlight">{longName}</span>
-        </h4>
+      </div>
+      <div className="area-card-info">
         <p className="about">{about}</p>
       </div>
       <div name={id} className="view-listings-button-container">
