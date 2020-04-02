@@ -91,23 +91,9 @@ export class MapContainer extends Component {
           visible={this.state.showingInfoWindow}
         >
           <div data-testid="listing-card" className="card-map">
-            <Router>
-              <Link
-                to={
-                  "/areas/" +
-                  this.state.selectedPlace.area_id +
-                  "/listings/" +
-                  this.state.selectedPlace.listing_id
-                }
-                className="map-link"
-                data-testid={this.state.selectedPlace.listing_id}
-              >
-                <h3>
-                  {this.state.selectedPlace.name}, $
-                  {this.state.selectedPlace.cost}
-                </h3>
-              </Link>
-            </Router>
+            <h3>
+              {this.state.selectedPlace.name}, ${this.state.selectedPlace.cost}
+            </h3>
 
             {/* <button className="listings-btn">View</button> */}
           </div>
