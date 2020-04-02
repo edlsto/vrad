@@ -65,12 +65,17 @@ class ListingsContainer extends Component {
           ""
         )}
         <div className="listings-container-inner">
-          <div className="card card-map-container">
-            <MapContainer
-              listings={this.state.listingsToMap}
-              highlightListing={this.highlightListing}
-            />
-          </div>
+          {this.props.pathname !== "/favorites" ? (
+            <div className="card card-map-container">
+              <MapContainer
+                listings={this.state.listingsToMap}
+                highlightListing={this.highlightListing}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+
           {this.props.listingsData.map(listing => {
             return (
               <Listing
