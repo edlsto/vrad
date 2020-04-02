@@ -46,7 +46,6 @@ export class MapContainer extends Component {
         lng: +listing.lng
       };
     });
-    console.log(points);
     var bounds = new this.props.google.maps.LatLngBounds();
     for (var i = 0; i < points.length; i++) {
       bounds.extend(points[i]);
@@ -63,14 +62,8 @@ export class MapContainer extends Component {
         zoom={12}
         onClick={this.onMapClicked}
         bounds={bounds}
-        // streetViewControl={false}
         disableDefaultUI={true}
         styles={[
-          // {
-          //   featureType: "all",
-          //   stylers: [{ color: "#C0C0C0" }]
-          // },
-
           {
             featureType: "poi",
             elementType: "labels",
@@ -79,12 +72,9 @@ export class MapContainer extends Component {
         ]}
       >
         {this.props.listings.map(listing => {
-          console.log(listing);
-          // const infobox = ;
           return (
             <Marker
               position={{ lat: +listing.lat, lng: +listing.lng }}
-              // onClick={this.onMarkerClick}
               name={listing.name}
               listing_id={listing.listing_id}
               area_id={listing.area_id}
@@ -92,6 +82,7 @@ export class MapContainer extends Component {
               onMouseout={this.onMouseOutMarker}
               onClick={this.onMarkerClicked}
               cost={listing.details.cost_per_night}
+              key={listing.listing_id}
             />
           );
         })}
@@ -111,7 +102,7 @@ export class MapContainer extends Component {
                 className="map-link"
                 data-testid={this.state.selectedPlace.listing_id}
               >
-                <h3 style={{ background: "#a5d3e5", padding: "1em" }}>
+                <h3>
                   {this.state.selectedPlace.name}, $
                   {this.state.selectedPlace.cost}
                 </h3>
@@ -127,5 +118,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyC2VvRB0-osXQ_3_fYpHc_LRraYZ29jJdU"
+  apiKey: process.env.REACT_APP_API_KEY
 })(MapContainer);
