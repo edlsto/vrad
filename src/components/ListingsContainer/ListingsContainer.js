@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import "./ListingsContainer.css";
 import Listing from "../Listing/Listing";
 import MapContainer from "../MapContainer/MapContainer";
-import { render } from "react-dom";
 
 class ListingsContainer extends Component {
   constructor(props) {
@@ -16,13 +15,11 @@ class ListingsContainer extends Component {
   }
 
   highlightListing = listingID => {
-    console.log(listingID);
     this.setState({ highlightedListing: listingID });
   };
 
   getLatLong = listingsToMap => {
     let listings = listingsToMap.map(listing => {
-      console.log(listing.address.street);
       return fetch(
         `https://nominatim.openstreetmap.org/?addressdetails=1&q=${listing.address.street
           .split(" ")
@@ -75,8 +72,6 @@ class ListingsContainer extends Component {
             />
           </div>
           {this.props.listingsData.map(listing => {
-            console.log(this.state.highlightedListing);
-
             return (
               <Listing
                 highlighted={
