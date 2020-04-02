@@ -2,26 +2,11 @@ import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 // import Marker from "../Marker/Marker";
 import "./MapContainer.css";
-
-// const card = (
-//   <div data-testid="listing-card" className="card">
-//     <div className="property-title">
-//       <h3>{this.props.name}</h3>
-//     </div>
-//     <div className="image-btn">
-//       <img
-//         src={"../../../images/" + this.props.listing_id + "_a.jpg"}
-//         className="listings-page-img"
-//         alt={this.props.name}
-//       />
-//       {/* <button className="listings-btn">View</button> */}
-//     </div>
-//   </div>
-// );
+import { Link, BrowserRouter as Router } from "react-router-dom";
 
 const style = {
-  width: "50%",
-  height: "50%"
+  width: "100%",
+  height: "100%"
 };
 
 export class MapContainer extends Component {
@@ -34,23 +19,23 @@ export class MapContainer extends Component {
     };
   }
 
-  onMouseoverMarker() {
-    console.log("hi");
-  }
-
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClicked = (props, marker, e) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+    this.props.highlightListing(this.state.selectedPlace.listing_id);
+  };
 
   onMapClicked = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
-        activeMarker: null
+        activeMarker: null,
+        selectedPlace: ""
       });
+      this.props.highlightListing(this.state.selectedPlace.listing_id);
     }
   };
 
@@ -67,12 +52,6 @@ export class MapContainer extends Component {
       bounds.extend(points[i]);
     }
 
-    //   [
-    //   { lat: 42.02, lng: -77.01 },
-    //   { lat: 42.03, lng: -77.02 },
-    //   { lat: 41.03, lng: -77.04 },
-    //   { lat: 42.05, lng: -77.02 }
-    // ];
     return (
       <Map
         google={this.props.google}
@@ -84,14 +63,35 @@ export class MapContainer extends Component {
         zoom={12}
         onClick={this.onMapClicked}
         bounds={bounds}
+        // streetViewControl={false}
+        disableDefaultUI={true}
+        styles={[
+          // {
+          //   featureType: "all",
+          //   stylers: [{ color: "#C0C0C0" }]
+          // },
+
+          {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+          }
+        ]}
       >
         {this.props.listings.map(listing => {
+          console.log(listing);
+          // const infobox = ;
           return (
             <Marker
               position={{ lat: +listing.lat, lng: +listing.lng }}
-              onClick={this.onMarkerClick}
+              // onClick={this.onMarkerClick}
               name={listing.name}
               listing_id={listing.listing_id}
+              area_id={listing.area_id}
+              onMouseover={this.onMarkerMouseOver}
+              onMouseout={this.onMouseOutMarker}
+              onClick={this.onMarkerClicked}
+              cost={listing.details.cost_per_night}
             />
           );
         })}
@@ -99,22 +99,26 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div data-testid="listing-card" className="card">
-            <div className="property-title">
-              <h3>{this.state.selectedPlace.name}</h3>
-            </div>
-            <div className="image-btn">
-              <img
-                src={
-                  "../../../images/" +
-                  this.state.selectedPlace.listing_id +
-                  "_a.jpg"
+          <div data-testid="listing-card" className="card-map">
+            <Router>
+              <Link
+                to={
+                  "/areas/" +
+                  this.state.selectedPlace.area_id +
+                  "/listings/" +
+                  this.state.selectedPlace.listing_id
                 }
-                className="listings-page-img"
-                alt={this.state.selectedPlace.name}
-              />
-              {/* <button className="listings-btn">View</button> */}
-            </div>
+                className="map-link"
+                data-testid={this.state.selectedPlace.listing_id}
+              >
+                <h3 style={{ background: "#a5d3e5", padding: "1em" }}>
+                  {this.state.selectedPlace.name}, $
+                  {this.state.selectedPlace.cost}
+                </h3>
+              </Link>
+            </Router>
+
+            {/* <button className="listings-btn">View</button> */}
           </div>
         </InfoWindow>
       </Map>
