@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 // import Marker from "../Marker/Marker";
 import "./MapContainer.css";
-import { Link, BrowserRouter as Router } from "react-router-dom";
 
 const style = {
   width: "100%",
