@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 // import Marker from "../Marker/Marker";
+import "./MapContainer.css";
+
+// const card = (
+//   <div data-testid="listing-card" className="card">
+//     <div className="property-title">
+//       <h3>{this.props.name}</h3>
+//     </div>
+//     <div className="image-btn">
+//       <img
+//         src={"../../../images/" + this.props.listing_id + "_a.jpg"}
+//         className="listings-page-img"
+//         alt={this.props.name}
+//       />
+//       {/* <button className="listings-btn">View</button> */}
+//     </div>
+//   </div>
+// );
 
 const style = {
   width: "50%",
@@ -74,6 +91,7 @@ export class MapContainer extends Component {
               position={{ lat: +listing.lat, lng: +listing.lng }}
               onClick={this.onMarkerClick}
               name={listing.name}
+              listing_id={listing.listing_id}
             />
           );
         })}
@@ -81,8 +99,22 @@ export class MapContainer extends Component {
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
         >
-          <div>
-            <h3>{this.state.selectedPlace.name}</h3>
+          <div data-testid="listing-card" className="card">
+            <div className="property-title">
+              <h3>{this.state.selectedPlace.name}</h3>
+            </div>
+            <div className="image-btn">
+              <img
+                src={
+                  "../../../images/" +
+                  this.state.selectedPlace.listing_id +
+                  "_a.jpg"
+                }
+                className="listings-page-img"
+                alt={this.state.selectedPlace.name}
+              />
+              {/* <button className="listings-btn">View</button> */}
+            </div>
           </div>
         </InfoWindow>
       </Map>
