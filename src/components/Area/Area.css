@@ -6,7 +6,6 @@ article {
   width: 40%;
   height: auto;
   border: 1px solid black;
-  padding: 1em;
   margin: 1em 1em 0 0;
   background-size: cover;
 }
@@ -23,7 +22,7 @@ article {
   color: black;
   text-decoration: none;
   font-family: Domine;
-  margin-top: 1em;
+  margin: 1em 0;
 }
 
 .view-listings-button {
@@ -54,11 +53,7 @@ article {
 }
 
 .area-subtitle {
-  margin: 0.2em 0 1em 0;
-  /* background-color: whitesmoke;
-  box-decoration-break: clone;
-  display: inline;
-  position: relative; */
+  font-size: 0.5em;
 }
 
 .card-background {
@@ -72,4 +67,16 @@ article {
   box-decoration-break: clone;
   display: inline;
   position: relative;
+  line-height: 1.4;
+  padding: 0.3em;
+}
+
+.title-subtitle-container {
+  background: gray;
+  width: 100%;
+  padding: 0.5em 1em;
+}
+
+.area-card-info {
+  padding: 1em;
 }
