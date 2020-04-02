@@ -5,14 +5,14 @@
 h3 {
   font-size: 1.5em;
   font-weight: 400;
+  font-family: "Domine", serif;
 }
 
-.card {
+.card-map {
   top: 30;
   position: relative;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 20em;
-  height: 10em;
 }
 
 .property-title {
@@ -38,21 +38,11 @@ h3 {
   bottom: 3em;
 } */
 
-.image-btn {
+.map-link {
+  text-decoration: none;
+  color: black;
 }
 
-.listings-btn {
-  position: absolute;
-  bottom: 1em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background: #ce2828;
-  color: white;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-  cursor: pointer;
-  width: 5em;
-  padding: 0.5em 1em;
-  text-decoration: none;
+.map-link:hover {
+  text-decoration: underline;
 }
