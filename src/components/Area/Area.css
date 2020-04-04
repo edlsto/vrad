@@ -1,28 +1,36 @@
 article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  /* align-items: flex-start; */
   width: 40%;
   height: auto;
-  border: 1px solid black;
-  margin: 1em 1em 0 0;
-  background-size: cover;
+  border: 1px solid lightgray;
+  margin: 1em 2em 0 0;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 0.6em;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.article-inner {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1em;
 }
 
 .view-listings-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 60%;
   height: 3em;
-  border: 1px solid black;
   font-size: 1em;
-  background-color: white;
-  color: black;
+  background-color: #00eac3;
+
   text-decoration: none;
-  font-family: Domine;
-  margin: 1em 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 .view-listings-button {
@@ -30,53 +38,41 @@ article {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: black;
-  width: 100%;
+  color: white;
   height: 3em;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
 }
 
-.view-listings-button:hover {
+/* .view-listings-button:hover {
   background-color: green;
   color: white;
-}
+} */
 
 .area-title {
   font-size: 2em;
-  margin: 0;
-}
-
-.area-highlight {
-  background-color: white;
-  padding-right: 0.2em;
-}
-
-.area-subtitle {
-  font-size: 0.5em;
-}
-
-.card-background {
-  object-fit: cover;
-  height: 100%;
-  background-size: relative;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0;
 }
 
 .about {
-  background-color: white;
-  box-decoration-break: clone;
-  display: inline;
-  position: relative;
   line-height: 1.4;
-  padding: 0.3em;
+  margin: 1em 0 2em 0;
+  /* padding: 0.3em; */
 }
 
 .title-subtitle-container {
-  background: gray;
+  /* background: gray; */
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 0 1em 0.5em 1em;
 }
 
-.area-card-info {
-  padding: 1em;
+.neighborhood-image {
+  width: 100%;
+  height: 10em;
+  /* margin: 0 1em; */
+  object-fit: cover;
 }

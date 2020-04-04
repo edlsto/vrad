@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 
 import "./Nav.css";
 import { Link } from "react-router-dom";
+import marker from "../../assets/marker.png";
 
-const Nav = props => {
+const Nav = (props) => {
   return (
     <nav>
-      <h1 className="nav-title">
-        VRAD
-        <span className="nav-subtitle">Vacation Rentals Around Denver</span>
-      </h1>
+      <div className="logo-nav">
+        <img className="nav-marker" src={marker} alt="" />
+        <h2 className="nav-title">
+          VRAD
+          {/* <span className="nav-subtitle">Vacation Rentals Around Denver</span> */}
+        </h2>
+      </div>
       {props.userinfo.name && (
         <div className="logged-in-elements">
           <div className="greeting-btn-container">
@@ -24,7 +28,10 @@ const Nav = props => {
               Favorites ({props.userinfo.favorites.length})
             </Link>
           </div>
-          <div onClick={e => props.logOutUser(e)} className="nav-btn-container">
+          <div
+            onClick={(e) => props.logOutUser(e)}
+            className="nav-btn-container"
+          >
             <Link to="/" className="nav-btn">
               Log out
             </Link>
@@ -39,5 +46,5 @@ export default Nav;
 
 Nav.propTypes = {
   logOutUser: PropTypes.func,
-  userInfo: PropTypes.object
+  userInfo: PropTypes.object,
 };

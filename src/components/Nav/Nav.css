@@ -3,9 +3,28 @@
 }
 
 nav {
-  background-color: grey;
+  /* background-color: lightgray; */
   display: flex;
   justify-content: space-between;
+}
+
+.nav-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.logo-nav {
+  height: 5em;
+  display: flex;
+  /* align-items: center; */
+  margin: 1em 0 0 1em;
+}
+
+.nav-marker {
+  height: 50%;
+  /* position: relative; */
+  margin-top: 0.5em;
 }
 
 .greeting-btn-container {
@@ -66,11 +85,10 @@ h1 {
   cursor: pointer;
 }
 
-.nav-btn:hover {
+/* .nav-btn:hover {
   background-color: green;
   color: white;
-}
-
+} */
 
 .fav-btn {
   margin-right: 1em;
