@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 import "./Login.css";
+import denverbackground from "../../assets/denver-background.jpg";
+import marker from "../../assets/marker.png";
+
 import { NavLink } from "react-router-dom";
 
 class Login extends Component {
@@ -15,11 +18,11 @@ class Login extends Component {
       emailValid: false,
       reasonValid: false,
       formValid: false,
-      loginFailed: false
+      loginFailed: false,
     };
   }
 
-  updateFormState = e => {
+  updateFormState = (e) => {
     let { name, value } = e.target;
     this.setState({ [name]: value }, this.checkField(name, value));
   };
@@ -50,7 +53,7 @@ class Login extends Component {
       {
         nameValid: nameValid,
         emailValid: emailValid,
-        reasonValid: reasonValid
+        reasonValid: reasonValid,
       },
       this.validateForm
     );
@@ -59,7 +62,7 @@ class Login extends Component {
   validateForm = () => {
     this.setState({
       formValid:
-        this.state.nameValid && this.state.emailValid && this.state.reasonValid
+        this.state.nameValid && this.state.emailValid && this.state.reasonValid,
     });
   };
 
@@ -73,13 +76,13 @@ class Login extends Component {
     }
   };
 
-  submitLogin = e => {
+  submitLogin = (e) => {
     e.preventDefault();
     const user = {
       name: this.state.username,
       email: this.state.email,
       visitReason: this.state.visitReason,
-      favorites: []
+      favorites: [],
     };
     if (this.state.formValid) {
       this.props.logInUser(user);
@@ -99,41 +102,64 @@ class Login extends Component {
     let error = this.throwErrorMessage();
     return (
       <section className="login-background">
-        <form data-testid="form">
-          <h2 data-testid="header">Login</h2>
-          <p className="error-message">{this.state.loginFailed ? error : ""}</p>
-          <input
-            name="username"
-            placeholder="Name"
-            type="text"
-            value={this.state.username}
-            onChange={e => this.updateFormState(e)}
-          />
-          <input
-            name="email"
-            placeholder="Email"
-            type="email"
-            value={this.state.email}
-            onChange={e => this.updateFormState(e)}
-          />
-          <select
-            data-testid="select"
-            name="visitReason"
-            value={this.state.visitReason}
-            onChange={e => this.updateFormState(e)}
-          >
-            <option value="">---Please select reason for visit---</option>
-            <option value="business">Business</option>
-            <option value="vacation">Vacation</option>
-            <option value="other">Other</option>
-          </select>
-          <div
-            className="login-button-container"
-            onClick={e => this.submitLogin(e)}
-          >
-            {button}
-          </div>
-        </form>
+        <div className="form-container">
+          {
+            <form data-testid="form">
+              <div className="header-container">
+                <div className="logo-container">
+                  <img className="marker" src={marker} alt="" />
+
+                  <h2 data-testid="header" className="login-header">
+                    VRAD
+                  </h2>
+                </div>
+                <h3 className="slogan">Vacation Rentals Around Denver</h3>
+              </div>
+
+              <p className="error-message">
+                {this.state.loginFailed ? error : ""}
+              </p>
+              <div className="inputs-container">
+                <input
+                  className="name-input"
+                  name="username"
+                  placeholder="Name"
+                  type="text"
+                  value={this.state.username}
+                  onChange={(e) => this.updateFormState(e)}
+                />
+                <input
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={(e) => this.updateFormState(e)}
+                />
+              </div>
+              <select
+                data-testid="select"
+                name="visitReason"
+                value={this.state.visitReason}
+                onChange={(e) => this.updateFormState(e)}
+              >
+                <option value="">Reason for visit</option>
+                <option value="business">Business</option>
+                <option value="vacation">Vacation</option>
+                <option value="other">Other</option>
+              </select>
+              <div
+                className="login-button-container"
+                onClick={(e) => this.submitLogin(e)}
+              >
+                {button}
+              </div>
+            </form>
+          }
+        </div>
+
+        <div className="img-container">
+          <img className="hero-img" src={denverbackground} alt="" />
+        </div>
       </section>
     );
   }
