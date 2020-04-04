@@ -4,11 +4,11 @@ This was a paired project where Dan Reardon and Ed Stoner created a housing rent
 
 # Screen Shots
 
-![Login](https://user-images.githubusercontent.com/56371796/78070537-3368a100-7359-11ea-8fa6-aa6ce472f48f.png)
-![Areas](https://user-images.githubusercontent.com/4350550/78304133-40bd9100-74fb-11ea-90b7-fdb219f19564.png)
-![Listings](https://user-images.githubusercontent.com/4350550/78304082-2be0fd80-74fb-11ea-941a-429f87dd38ad.png)
-![Details](https://user-images.githubusercontent.com/56371796/78079556-982bf780-7369-11ea-8ebd-b7056ea04490.png)
-![Favorites](https://user-images.githubusercontent.com/56371796/78070744-8e9a9380-7359-11ea-9596-acfc6d3f92b0.png)
+![Login](https://user-images.githubusercontent.com/4350550/78462695-d12dda00-7691-11ea-8a0f-196590768f97.png)
+![Areas](https://user-images.githubusercontent.com/4350550/78462707-e0ad2300-7691-11ea-9439-3ad0b3c05ae5.png)
+![Listings](https://user-images.githubusercontent.com/4350550/78462713-f3275c80-7691-11ea-86b6-332206275745.png)
+![Details](https://user-images.githubusercontent.com/4350550/78462741-28cc4580-7692-11ea-993f-90b8e8d344ca.png)
+![Favorites](https://user-images.githubusercontent.com/4350550/78462753-4ac5c800-7692-11ea-824e-cdc8bd401df6.png)
 
 # Install & Intructions
 
