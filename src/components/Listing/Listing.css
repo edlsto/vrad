@@ -11,16 +11,21 @@ h3 {
   margin: 0 1em 1em 0;
   position: relative;
   border: 1px solid black;
+  /* border-radius: 0.3em; */
 }
 
 .property-title {
   height: auto;
-  background: gray;
+  background: white;
   padding: 1em;
   position: absolute;
   top: 0;
   z-index: 1;
   width: 100%;
+}
+
+.property-title-text {
+  font-family: "Open Sans", sans-serif;
 }
 
 .listings-page-img {
@@ -83,16 +88,16 @@ h3 {
 }
 
 .highlighted .property-title {
-  background: #a5d3e5;
+  background: #00eac3;
 }
 
 .highlighted .listings-btn {
-  background: #a5d3e5;
+  background: #00eac3;
   color: black;
 }
 
 .highlighted .listing-heart-container {
-  background: #a5d3e5;
+  background: #00eac3;
   color: black;
 }
 
