@@ -14,19 +14,19 @@ class ListingsContainer extends Component {
     this.getLatLong(this.props.listingsData);
   }
 
-  highlightListing = listingID => {
+  highlightListing = (listingID) => {
     this.setState({ highlightedListing: listingID });
   };
 
-  getLatLong = listingsToMap => {
-    let listings = listingsToMap.map(listing => {
+  getLatLong = (listingsToMap) => {
+    let listings = listingsToMap.map((listing) => {
       return fetch(
         `https://nominatim.openstreetmap.org/?addressdetails=1&q=${listing.address.street
           .split(" ")
           .join("+")}+${listing.address.zip}&format=json&limit=1`
       )
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           return {
             listing_id: listing.listing_id,
             area_id: listing.area_id,
@@ -34,12 +34,12 @@ class ListingsContainer extends Component {
             lat: data[0].lat,
             lng: data[0].lon,
             address: listing.address,
-            details: listing.details
+            details: listing.details,
           };
         })
-        .catch(error => console.log(error));
+        .catch((error) => console.log(error));
     });
-    Promise.all(listings).then(response =>
+    Promise.all(listings).then((response) =>
       this.setState({ listingsToMap: response })
     );
   };
@@ -52,9 +52,7 @@ class ListingsContainer extends Component {
       >
         {" "}
         <h2 className="listings-header">
-          {this.props.pathname.includes("/favorites")
-            ? "Favorites"
-            : "Listings"}
+          {this.props.pathname.includes("/favorites") ? "Favorites" : ""}
         </h2>
         {this.props.favorites.length === 0 &&
         this.props.pathname === "/favorites" ? (
@@ -76,7 +74,7 @@ class ListingsContainer extends Component {
             ""
           )}
 
-          {this.props.listingsData.map(listing => {
+          {this.props.listingsData.map((listing) => {
             return (
               <Listing
                 highlighted={
@@ -106,5 +104,5 @@ ListingsContainer.propTypes = {
   area_id: PropTypes.number,
   favorites: PropTypes.array,
   pathname: PropTypes.string,
-  listingsData: PropTypes.array
+  listingsData: PropTypes.array,
 };
