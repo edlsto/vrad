@@ -15,7 +15,7 @@ h3 {
   width: 20em;
 }
 
-.property-title {
+/* .property-title {
   height: auto;
   background: gray;
   padding: 1em;
@@ -23,14 +23,7 @@ h3 {
   top: 0;
   z-index: 1;
   width: 100%;
-}
-
-.listings-page-img {
-  width: 100%;
-  object-fit: cover;
-  height: 15em;
-  vertical-align: bottom;
-}
+} */
 
 /* button {
   position: absolute;
