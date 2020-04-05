@@ -64,7 +64,7 @@ class ListingsContainer extends Component {
         )}
         <div className="listings-container-inner">
           {this.props.pathname !== "/favorites" ? (
-            <div className="card card-map-container">
+            <div className=" card-map-container">
               <MapContainer
                 listings={this.state.listingsToMap}
                 highlightListing={this.highlightListing}
@@ -74,23 +74,25 @@ class ListingsContainer extends Component {
             ""
           )}
 
-          {this.props.listingsData.map((listing) => {
-            return (
-              <Listing
-                highlighted={
-                  this.state.highlightedListing === listing.listing_id
-                    ? true
-                    : false
-                }
-                name={listing.name}
-                listing_id={listing.listing_id}
-                area_id={this.props.area_id}
-                key={listing.listing_id}
-                favorite={this.props.favorites.includes(listing.listing_id)}
-                addDeleteFavorite={this.props.addDeleteFavorite}
-              />
-            );
-          })}
+          <div className="listing-tiles">
+            {this.props.listingsData.map((listing) => {
+              return (
+                <Listing
+                  highlighted={
+                    this.state.highlightedListing === listing.listing_id
+                      ? true
+                      : false
+                  }
+                  name={listing.name}
+                  listing_id={listing.listing_id}
+                  area_id={this.props.area_id}
+                  key={listing.listing_id}
+                  favorite={this.props.favorites.includes(listing.listing_id)}
+                  addDeleteFavorite={this.props.addDeleteFavorite}
+                />
+              );
+            })}
+          </div>
         </div>
       </section>
     );
