@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/vrad/static/css/main.2c4bb882.chunk.css",
-    "main.js": "/vrad/static/js/main.77ff5f5c.chunk.js",
-    "main.js.map": "/vrad/static/js/main.77ff5f5c.chunk.js.map",
+    "main.js": "/vrad/static/js/main.b3f531be.chunk.js",
+    "main.js.map": "/vrad/static/js/main.b3f531be.chunk.js.map",
     "runtime-main.js": "/vrad/static/js/runtime-main.56b5c584.js",
     "runtime-main.js.map": "/vrad/static/js/runtime-main.56b5c584.js.map",
     "static/js/2.2ff1a358.chunk.js": "/vrad/static/js/2.2ff1a358.chunk.js",
     "static/js/2.2ff1a358.chunk.js.map": "/vrad/static/js/2.2ff1a358.chunk.js.map",
     "index.html": "/vrad/index.html",
-    "precache-manifest.ad7b0311c171049867ddbe560c08af65.js": "/vrad/precache-manifest.ad7b0311c171049867ddbe560c08af65.js",
+    "precache-manifest.382dc5be4784d45e405a28ead1820e02.js": "/vrad/precache-manifest.382dc5be4784d45e405a28ead1820e02.js",
     "service-worker.js": "/vrad/service-worker.js",
     "static/css/main.2c4bb882.chunk.css.map": "/vrad/static/css/main.2c4bb882.chunk.css.map",
     "static/js/2.2ff1a358.chunk.js.LICENSE.txt": "/vrad/static/js/2.2ff1a358.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.56b5c584.js",
     "static/js/2.2ff1a358.chunk.js",
     "static/css/main.2c4bb882.chunk.css",
-    "static/js/main.77ff5f5c.chunk.js"
+    "static/js/main.b3f531be.chunk.js"
   ]
 }
