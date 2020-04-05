@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import "./Listing.css";
 import { Link } from "react-router-dom";
 
-const Listing = props => {
+const Listing = (props) => {
   return (
     <div
       data-testid="listing-card"
       className={props.highlighted ? "card highlighted" : "card"}
     >
       <div className="property-title">
-        <h3>{props.name}</h3>
+        <h3 className="property-title-text">{props.name}</h3>
       </div>
       <div className="image-btn">
         <img
@@ -29,7 +29,7 @@ const Listing = props => {
           <div
             data-testid="favorite-btn"
             className="listing-heart-container"
-            onClick={e => props.addDeleteFavorite(props.listing_id)}
+            onClick={(e) => props.addDeleteFavorite(props.listing_id)}
           >
             <i
               className={
@@ -52,5 +52,5 @@ Listing.propTypes = {
   listing_id: PropTypes.number,
   area_id: PropTypes.number,
   addDeleteFavorite: PropTypes.func,
-  favorite: PropTypes.bool
+  favorite: PropTypes.bool,
 };
