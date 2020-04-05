@@ -5,8 +5,9 @@ import "./Area.css";
 import { NavLink } from "react-router-dom";
 
 const Area = ({ about, id, shortName, longName, chooseNeighborhood }) => {
-  let areaNameNoSpaces = shortName.replace(/\s/g, "");
-  let imgSrc = `../images/neighborhoods/${areaNameNoSpaces}.jpg`;
+  let areaNameNoSpaces = shortName.replace(/\s/g, "").toLowerCase();
+  let imgSrc =
+    process.env.PUBLIC_URL + `/images/neighborhoods/${areaNameNoSpaces}.jpg`;
 
   return (
     <article id={id}>
