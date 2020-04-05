@@ -4,8 +4,8 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import "./MapContainer.css";
 
 const style = {
-  width: "100%",
-  height: "100%"
+  // width: "100%",
+  // height: "100%"
 };
 
 export class MapContainer extends Component {
@@ -14,7 +14,7 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
     };
   }
 
@@ -22,27 +22,27 @@ export class MapContainer extends Component {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
     this.props.highlightListing(this.state.selectedPlace.listing_id);
   };
 
-  onMapClicked = props => {
+  onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: null,
-        selectedPlace: ""
+        selectedPlace: "",
       });
       this.props.highlightListing(this.state.selectedPlace.listing_id);
     }
   };
 
   render() {
-    var points = this.props.listings.map(listing => {
+    var points = this.props.listings.map((listing) => {
       return {
         lat: +listing.lat,
-        lng: +listing.lng
+        lng: +listing.lng,
       };
     });
     var bounds = new this.props.google.maps.LatLngBounds();
@@ -56,7 +56,7 @@ export class MapContainer extends Component {
         style={style}
         initialCenter={{
           lat: 39.742043,
-          lng: -104.991531
+          lng: -104.991531,
         }}
         zoom={12}
         onClick={this.onMapClicked}
@@ -66,11 +66,11 @@ export class MapContainer extends Component {
           {
             featureType: "poi",
             elementType: "labels",
-            stylers: [{ visibility: "off" }]
-          }
+            stylers: [{ visibility: "off" }],
+          },
         ]}
       >
-        {this.props.listings.map(listing => {
+        {this.props.listings.map((listing) => {
           return (
             <Marker
               position={{ lat: +listing.lat, lng: +listing.lng }}
@@ -103,5 +103,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_API_KEY
+  apiKey: process.env.REACT_APP_API_KEY,
 })(MapContainer);
