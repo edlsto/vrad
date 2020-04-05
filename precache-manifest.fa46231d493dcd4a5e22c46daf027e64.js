@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f3aeace441784fe59e3248ea9da231fb",
+    "revision": "4d0ccab7f8ef09417fc990fdf6c6bd3d",
     "url": "/vrad/index.html"
   },
   {
-    "revision": "7cbe6754969bde72f521",
-    "url": "/vrad/static/css/main.83966eb3.chunk.css"
+    "revision": "ad94eaad05693660bf11",
+    "url": "/vrad/static/css/main.d7a0d353.chunk.css"
   },
   {
-    "revision": "9566a1de7bf538cf5b15",
-    "url": "/vrad/static/js/2.2ff1a358.chunk.js"
+    "revision": "6bad90d87e0749f2bf29",
+    "url": "/vrad/static/js/2.1b97f747.chunk.js"
   },
   {
-    "revision": "54fd6816419f7824e2804745930c9117",
-    "url": "/vrad/static/js/2.2ff1a358.chunk.js.LICENSE.txt"
+    "revision": "da75538c52411804769b514107a743de",
+    "url": "/vrad/static/js/2.1b97f747.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7cbe6754969bde72f521",
-    "url": "/vrad/static/js/main.39c95083.chunk.js"
+    "revision": "ad94eaad05693660bf11",
+    "url": "/vrad/static/js/main.43b3c8ba.chunk.js"
   },
   {
     "revision": "5a54e8f4795f5477f7c9",
