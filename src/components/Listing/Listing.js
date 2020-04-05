@@ -14,7 +14,9 @@ const Listing = (props) => {
       </div>
       <div className="image-btn">
         <img
-          src={"../../../images/" + props.listing_id + "_a.jpg"}
+          src={
+            process.env.PUBLIC_URL + "/images/" + props.listing_id + "_a.jpg"
+          }
           className="listings-page-img"
           alt={props.name}
         />
