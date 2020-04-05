@@ -9,7 +9,7 @@ class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentImageIndex: 0
+      currentImageIndex: 0,
     };
   }
 
@@ -24,17 +24,18 @@ class Carousel extends Component {
         ? this.mod(this.state.currentImageIndex + 1, 3)
         : this.mod(this.state.currentImageIndex - 1, 3);
     this.setState({
-      currentImageIndex: newIndex
+      currentImageIndex: newIndex,
     });
   }
 
   render() {
-    const imageIds = ["A", "B", "C"];
+    const imageIds = ["a", "b", "c"];
     return (
       <section className="carousel">
         <img
           src={
-            "../../../images/" +
+            process.env.PUBLIC_URL +
+            "/images/" +
             this.props.listing_id +
             "_" +
             imageIds[this.state.currentImageIndex] +
@@ -46,13 +47,13 @@ class Carousel extends Component {
           }
         />
         <div className="carousel-control">
-          <div className="carousel-back" onClick={e => this.changeImage(e)}>
+          <div className="carousel-back" onClick={(e) => this.changeImage(e)}>
             <img
               src={left}
               alt="left-arrow"
               className="control-item"
               name="left"
-              onClick={e => this.changeImage(e)}
+              onClick={(e) => this.changeImage(e)}
             />
           </div>
           <div>
@@ -60,7 +61,10 @@ class Carousel extends Component {
               Photo {this.state.currentImageIndex + 1} of 3
             </p>
           </div>
-          <div className="carousel-forward" onClick={e => this.changeImage(e)}>
+          <div
+            className="carousel-forward"
+            onClick={(e) => this.changeImage(e)}
+          >
             <img
               src={right}
               alt="right-arrow"
@@ -77,5 +81,5 @@ class Carousel extends Component {
 export default Carousel;
 
 Carousel.propTypes = {
-  listing_id: PropTypes.number
+  listing_id: PropTypes.number,
 };
