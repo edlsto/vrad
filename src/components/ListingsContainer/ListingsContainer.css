@@ -1,20 +1,17 @@
 .listings-container-inner {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-template-rows: 16em 16em 16em 16em;
-  background: #ffffff;
-  color: black;
-  text-align: center;
-  /* background: lightgray; */
+  display: flex;
 }
 
 .listing-tiles {
-  grid-column: 3/5;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fill, 16em);
   background: #ffffff;
   color: black;
   text-align: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  width: 53%;
 }
 
 .listings-card-container {
@@ -36,9 +33,9 @@
 }
 
 .card-map-container {
-  grid-column: 1/3;
-  grid-row: 1/3;
-  position: relative;
-  /* width: auto; */
+  position: fixed;
   margin: 0 1em 1em 0;
+  width: 35%;
+  height: calc(95vh - 130px);
+  border: 1px solid black;
 }
