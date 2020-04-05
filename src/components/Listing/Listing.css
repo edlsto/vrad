@@ -88,12 +88,12 @@ h3 {
 }
 
 .highlighted .property-title {
-  background: #e4ee14;
+  background: #fbffa3;
 }
 
 .highlighted .listings-btn {
   /* background: #e4ee14; */
-  color: black;
+  /* color: black; */
 }
 
 .highlighted .listing-heart-container {
