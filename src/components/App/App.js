@@ -94,21 +94,21 @@ class App extends Component {
         <main>
           <Route
             exact
-            path={process.env.PUBLIC_URL + "/"}
+            path="/"
             render={(routeValues) => (
               <Login logInUser={this.logInUser} {...routeValues} />
             )}
           />
           <Route
             exact
-            path={process.env.PUBLIC_URL + "/areas"}
+            path="/areas"
             render={(routeValues) => (
               <CardsContainer areas={this.state.areas} {...routeValues} />
             )}
           />
           <Route
             exact
-            path={process.env.PUBLIC_URL + "/areas/:id/listings"}
+            path="/areas/:id/listings"
             render={({ match, history }) => {
               const { id } = match.params;
               const { pathname } = history.location;
@@ -128,7 +128,7 @@ class App extends Component {
           />
           <Route
             exact
-            path={process.env.PUBLIC_URL + "/areas/:id/listings/:listing"}
+            path="/areas/:id/listings/:listing"
             render={({ match }) => {
               const { listing } = match.params;
               let selectedListing = this.state.listings.find((property) => {
@@ -147,7 +147,7 @@ class App extends Component {
           />
           <Route
             exact
-            path={process.env.PUBLIC_URL + "/favorites"}
+            path="/favorites"
             render={(routeValues) => {
               const { pathname } = routeValues.location;
               let favoriteListings = this.state.userInfo.favorites.map(
