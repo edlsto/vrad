@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./ListingsContainer.css";
 import Listing from "../Listing/Listing";
-import MapContainer from "../MapContainer/MapContainer";
+import Map from "../Map/Map";
 
 class ListingsContainer extends Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class ListingsContainer extends Component {
         )}
         <div className="listings-container-inner">
           <div className=" card-map-container">
-            <MapContainer
+            <Map
               listings={this.state.listingsToMap}
               highlightListing={this.highlightListing}
             />
