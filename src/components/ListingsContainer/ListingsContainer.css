@@ -1,10 +1,20 @@
 .listings-container-inner {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: 16em 16em 16em 16em;
   background: #ffffff;
   color: black;
   text-align: center;
   /* background: lightgray; */
+}
+
+.listing-tiles {
+  grid-column: 3/5;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  background: #ffffff;
+  color: black;
+  text-align: center;
 }
 
 .listings-card-container {
@@ -28,5 +38,7 @@
 .card-map-container {
   grid-column: 1/3;
   grid-row: 1/3;
+  position: relative;
   /* width: auto; */
+  margin: 0 1em 1em 0;
 }
