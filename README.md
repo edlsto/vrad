@@ -1,6 +1,6 @@
 # Vacation Rentals Around Denver
 
-This was a paired project where Dan Reardon and Ed Stoner created a housing rentals application for the denver area. The main focus point for this project was React. We used React, React Router, JSX, CSS, React-Testing-Library, Jest, and fetch for this project.
+This was a paired project where Dan Reardon and Ed Stoner created a housing rentals application for the denver area. The main focus point for this project was React. We used React, React Router, JSX, CSS, React-Testing-Library, Jest and Leaflet for this project.
 
 # Screen Shots
 
