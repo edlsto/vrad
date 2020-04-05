@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/vrad/static/css/main.2c4bb882.chunk.css",
+    "main.css": "/vrad/static/css/main.f504cdbd.chunk.css",
     "main.js": "/vrad/static/js/main.f2f87a98.chunk.js",
     "main.js.map": "/vrad/static/js/main.f2f87a98.chunk.js.map",
     "runtime-main.js": "/vrad/static/js/runtime-main.56b5c584.js",
@@ -8,9 +8,9 @@
     "static/js/2.2ff1a358.chunk.js": "/vrad/static/js/2.2ff1a358.chunk.js",
     "static/js/2.2ff1a358.chunk.js.map": "/vrad/static/js/2.2ff1a358.chunk.js.map",
     "index.html": "/vrad/index.html",
-    "precache-manifest.6aed9c57787dd3c49cf294801775917e.js": "/vrad/precache-manifest.6aed9c57787dd3c49cf294801775917e.js",
+    "precache-manifest.f67bf3d73ca88ba8b33d18b7aec6bcaf.js": "/vrad/precache-manifest.f67bf3d73ca88ba8b33d18b7aec6bcaf.js",
     "service-worker.js": "/vrad/service-worker.js",
-    "static/css/main.2c4bb882.chunk.css.map": "/vrad/static/css/main.2c4bb882.chunk.css.map",
+    "static/css/main.f504cdbd.chunk.css.map": "/vrad/static/css/main.f504cdbd.chunk.css.map",
     "static/js/2.2ff1a358.chunk.js.LICENSE.txt": "/vrad/static/js/2.2ff1a358.chunk.js.LICENSE.txt",
     "static/media/denver-background.jpg": "/vrad/static/media/denver-background.75626fae.jpg",
     "static/media/left.png": "/vrad/static/media/left.ecdc2137.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.56b5c584.js",
     "static/js/2.2ff1a358.chunk.js",
-    "static/css/main.2c4bb882.chunk.css",
+    "static/css/main.f504cdbd.chunk.css",
     "static/js/main.f2f87a98.chunk.js"
   ]
 }
