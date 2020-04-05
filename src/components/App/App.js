@@ -19,11 +19,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/api/v1/areas")
+    fetch("https://vrad-api.herokuapp.com/api/v1/areas")
       .then((response) => response.json())
       .then((data) => {
         const promises = data.areas.map((area) => {
-          return fetch("http://localhost:3001" + area.details)
+          return fetch("https://vrad-api.herokuapp.com" + area.details)
             .then((res) => res.json())
             .then((info) => {
               return {

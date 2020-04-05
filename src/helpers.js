@@ -1,10 +1,10 @@
-export const getAllListings = areasData => {
+export const getAllListings = (areasData) => {
   const result = areasData.reduce((allListings, area) => {
-    area.listings.forEach(listing => allListings.push(listing));
+    area.listings.forEach((listing) => allListings.push(listing));
     return allListings;
   }, []);
-  const promises = result.map(listing => {
-    return fetch("http://localhost:3001" + listing).then(response =>
+  const promises = result.map((listing) => {
+    return fetch("https://vrad-api.herokuapp.com" + listing).then((response) =>
       response.json()
     );
   });
