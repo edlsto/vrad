@@ -5,7 +5,7 @@ import Login from "../Login/Login";
 import CardsContainer from "../CardsContainer/CardsContainer";
 import ListingsContainer from "../ListingsContainer/ListingsContainer";
 import Details from "../Details/Details";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { getAllListings } from "../../helpers.js";
 
 class App extends Component {
@@ -42,6 +42,13 @@ class App extends Component {
         this.getListingsData(areas);
       })
       .catch((error) => console.error(error));
+
+    if (!this.state.userInfo.name) {
+      console.log("no one signed in");
+      console.log(JSON.parse(localStorage.getItem("userInfo")));
+      const userFromLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+      this.setState({ userInfo: userFromLocalStorage });
+    }
   }
 
   getListingsData = (areasData) => {
@@ -52,6 +59,7 @@ class App extends Component {
     this.setState({
       userInfo: user,
     });
+    localStorage.setItem("userInfo", JSON.stringify(user));
   };
 
   addDeleteFavorite = (id) => {
@@ -80,12 +88,19 @@ class App extends Component {
   };
 
   logOutUser = () => {
+    localStorage.setItem(
+      "userInfo",
+      JSON.stringify({ name: "", email: "", visitReason: "", favorites: [] })
+    );
     this.setState({
       userInfo: { name: "", email: "", visitReason: "", favorites: [] },
     });
   };
 
   render() {
+    //  if (localStorage.userInfo) {
+    //    console.log(JSON.parse(localStorage.getItem("userInfo")));
+    //  }
     return (
       <div>
         {this.state.userInfo.name && (
@@ -95,16 +110,32 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(routeValues) => (
-              <Login logInUser={this.logInUser} {...routeValues} />
-            )}
+            render={(routeValues) =>
+              !this.state.userInfo.name ? (
+                <Login logInUser={this.logInUser} {...routeValues} />
+              ) : (
+                <Redirect
+                  to={{
+                    pathname: "/areas",
+                  }}
+                />
+              )
+            }
           />
           <Route
             exact
             path="/areas"
-            render={(routeValues) => (
-              <CardsContainer areas={this.state.areas} {...routeValues} />
-            )}
+            render={(routeValues) =>
+              this.state.userInfo.name ? (
+                <CardsContainer areas={this.state.areas} {...routeValues} />
+              ) : (
+                <Redirect
+                  to={{
+                    pathname: "/",
+                  }}
+                />
+              )
+            }
           />
           <Route
             exact
@@ -115,13 +146,19 @@ class App extends Component {
               let currentlyShownListings = this.state.listings.filter(
                 (listing) => listing.area_id === parseInt(id)
               );
-              return (
+              return this.state.userInfo.name ? (
                 <ListingsContainer
                   listingsData={currentlyShownListings}
                   area_id={parseInt(id)}
                   pathname={pathname}
                   favorites={this.state.userInfo.favorites}
                   addDeleteFavorite={this.addDeleteFavorite}
+                />
+              ) : (
+                <Redirect
+                  to={{
+                    pathname: "/",
+                  }}
                 />
               );
             }}
@@ -135,11 +172,17 @@ class App extends Component {
                 return property.listing_id === parseInt(listing);
               });
               if (this.state.listings.length > 0) {
-                return (
+                return this.state.userInfo.name ? (
                   <Details
                     selectedListing={selectedListing}
                     addDeleteFavorite={this.addDeleteFavorite}
                     favorites={this.state.userInfo.favorites}
+                  />
+                ) : (
+                  <Redirect
+                    to={{
+                      pathname: "/",
+                    }}
                   />
                 );
               }
@@ -157,13 +200,19 @@ class App extends Component {
                   );
                 }
               );
-              return (
+              return this.state.userInfo.name ? (
                 <ListingsContainer
                   listingsData={favoriteListings}
                   {...routeValues}
                   pathname={pathname}
                   favorites={this.state.userInfo.favorites}
                   addDeleteFavorite={this.addDeleteFavorite}
+                />
+              ) : (
+                <Redirect
+                  to={{
+                    pathname: "/",
+                  }}
                 />
               );
             }}
