@@ -66,24 +66,32 @@ class App extends Component {
     let currentFavorites = this.state.userInfo.favorites;
     if (currentFavorites.includes(id)) {
       currentFavorites.splice(currentFavorites.indexOf(id), 1);
-      this.setState({
-        userInfo: {
-          name: this.state.userInfo.name,
-          email: this.state.userInfo.email,
-          visitReason: this.state.userInfo.visitReason,
-          favorites: currentFavorites,
+      this.setState(
+        {
+          userInfo: {
+            name: this.state.userInfo.name,
+            email: this.state.userInfo.email,
+            visitReason: this.state.userInfo.visitReason,
+            favorites: currentFavorites,
+          },
         },
-      });
+        () =>
+          localStorage.setItem("userInfo", JSON.stringify(this.state.userInfo))
+      );
     } else {
       let userFavorites = currentFavorites.concat([id]);
-      this.setState({
-        userInfo: {
-          name: this.state.userInfo.name,
-          email: this.state.userInfo.email,
-          visitReason: this.state.userInfo.visitReason,
-          favorites: userFavorites,
+      this.setState(
+        {
+          userInfo: {
+            name: this.state.userInfo.name,
+            email: this.state.userInfo.email,
+            visitReason: this.state.userInfo.visitReason,
+            favorites: userFavorites,
+          },
         },
-      });
+        () =>
+          localStorage.setItem("userInfo", JSON.stringify(this.state.userInfo))
+      );
     }
   };
 
@@ -141,6 +149,7 @@ class App extends Component {
             exact
             path="/areas/:id/listings"
             render={({ match, history }) => {
+              console.log(this.state);
               const { id } = match.params;
               const { pathname } = history.location;
               let currentlyShownListings = this.state.listings.filter(
