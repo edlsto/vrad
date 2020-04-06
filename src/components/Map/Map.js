@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import { latLngBounds, bindPopUp } from "leaflet";
+import { latLngBounds } from "leaflet";
 import "./Map.css";
 
 export default class SimpleExample extends Component {
