@@ -8,18 +8,17 @@ import marker from "../../assets/marker.png";
 const Nav = (props) => {
   return (
     <nav>
-      <div className="logo-nav">
-        <Link to="/areas" className="title-text">
+      <Link to="/areas" className="title-text">
+        <div className="logo-nav">
           <img className="nav-marker" src={marker} alt="" />
-        </Link>
 
-        <h2 className="nav-title">
-          <Link to="/areas" className="title-text">
+          <h2 className="nav-title">
             VRAD
-          </Link>
-          {/* <span className="nav-subtitle">Vacation Rentals Around Denver</span> */}
-        </h2>
-      </div>
+            {/* <span className="nav-subtitle">Vacation Rentals Around Denver</span> */}
+          </h2>
+        </div>
+      </Link>
+
       {props.userinfo.name && (
         <div className="logged-in-elements">
           <div className="greeting-btn-container">
