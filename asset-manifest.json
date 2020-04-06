@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/vrad/static/css/main.17721baf.chunk.css",
-    "main.js": "/vrad/static/js/main.7bff9338.chunk.js",
-    "main.js.map": "/vrad/static/js/main.7bff9338.chunk.js.map",
+    "main.css": "/vrad/static/css/main.7399defc.chunk.css",
+    "main.js": "/vrad/static/js/main.4880aaa8.chunk.js",
+    "main.js.map": "/vrad/static/js/main.4880aaa8.chunk.js.map",
     "runtime-main.js": "/vrad/static/js/runtime-main.56b5c584.js",
     "runtime-main.js.map": "/vrad/static/js/runtime-main.56b5c584.js.map",
     "static/js/2.504f0cf9.chunk.js": "/vrad/static/js/2.504f0cf9.chunk.js",
     "static/js/2.504f0cf9.chunk.js.map": "/vrad/static/js/2.504f0cf9.chunk.js.map",
     "index.html": "/vrad/index.html",
-    "precache-manifest.c0f2dd4ea9dc31560562e8df4be00841.js": "/vrad/precache-manifest.c0f2dd4ea9dc31560562e8df4be00841.js",
+    "precache-manifest.3576af35919d54ff4fab8c53f46fadd4.js": "/vrad/precache-manifest.3576af35919d54ff4fab8c53f46fadd4.js",
     "service-worker.js": "/vrad/service-worker.js",
-    "static/css/main.17721baf.chunk.css.map": "/vrad/static/css/main.17721baf.chunk.css.map",
+    "static/css/main.7399defc.chunk.css.map": "/vrad/static/css/main.7399defc.chunk.css.map",
     "static/js/2.504f0cf9.chunk.js.LICENSE.txt": "/vrad/static/js/2.504f0cf9.chunk.js.LICENSE.txt",
     "static/media/denver-background.jpg": "/vrad/static/media/denver-background.75626fae.jpg",
     "static/media/left.png": "/vrad/static/media/left.ecdc2137.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.56b5c584.js",
     "static/js/2.504f0cf9.chunk.js",
-    "static/css/main.17721baf.chunk.css",
-    "static/js/main.7bff9338.chunk.js"
+    "static/css/main.7399defc.chunk.css",
+    "static/js/main.4880aaa8.chunk.js"
   ]
 }
