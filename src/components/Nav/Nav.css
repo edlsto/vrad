@@ -19,6 +19,7 @@ nav {
   display: flex;
   /* align-items: center; */
   margin: 1em 0 0 1em;
+  justify-content: flex-start;
 }
 
 .nav-marker {
@@ -103,5 +104,4 @@ h1 {
 .title-text {
   text-decoration: none;
   color: black;
-  width: 100%;
 }
