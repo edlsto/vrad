@@ -9,9 +9,14 @@ const Nav = (props) => {
   return (
     <nav>
       <div className="logo-nav">
-        <img className="nav-marker" src={marker} alt="" />
+        <Link to="/areas" className="title-text">
+          <img className="nav-marker" src={marker} alt="" />
+        </Link>
+
         <h2 className="nav-title">
-          VRAD
+          <Link to="/areas" className="title-text">
+            VRAD
+          </Link>
           {/* <span className="nav-subtitle">Vacation Rentals Around Denver</span> */}
         </h2>
       </div>
@@ -32,9 +37,7 @@ const Nav = (props) => {
             onClick={(e) => props.logOutUser(e)}
             className="nav-btn-container"
           >
-            <Link to="/" className="nav-btn">
-              Log out
-            </Link>
+            <button className="nav-btn">Log out</button>
           </div>
         </div>
       )}

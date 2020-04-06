@@ -99,3 +99,8 @@ h1 {
   font-size: 0.8em;
   text-transform: capitalize;
 }
+
+.title-text {
+  text-decoration: none;
+  color: black;
+}
