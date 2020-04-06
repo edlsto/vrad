@@ -44,10 +44,12 @@ class App extends Component {
       .catch((error) => console.error(error));
 
     if (!this.state.userInfo.name) {
-      console.log("no one signed in");
-      console.log(JSON.parse(localStorage.getItem("userInfo")));
-      const userFromLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
-      this.setState({ userInfo: userFromLocalStorage });
+      if (JSON.parse(localStorage.getItem("userInfo"))) {
+        const userFromLocalStorage = JSON.parse(
+          localStorage.getItem("userInfo")
+        );
+        this.setState({ userInfo: userFromLocalStorage });
+      }
     }
   }
 
@@ -106,9 +108,6 @@ class App extends Component {
   };
 
   render() {
-    //  if (localStorage.userInfo) {
-    //    console.log(JSON.parse(localStorage.getItem("userInfo")));
-    //  }
     return (
       <div>
         {this.state.userInfo.name && (
@@ -149,7 +148,6 @@ class App extends Component {
             exact
             path="/areas/:id/listings"
             render={({ match, history }) => {
-              console.log(this.state);
               const { id } = match.params;
               const { pathname } = history.location;
               let currentlyShownListings = this.state.listings.filter(
