@@ -32,9 +32,7 @@ const Nav = (props) => {
             onClick={(e) => props.logOutUser(e)}
             className="nav-btn-container"
           >
-            <Link to="/" className="nav-btn">
-              Log out
-            </Link>
+            <button className="nav-btn">Log out</button>
           </div>
         </div>
       )}
